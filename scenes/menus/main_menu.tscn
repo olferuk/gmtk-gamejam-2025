@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ee7wei17yxjm"]
 
-[ext_resource type="Script" path="res://src/main_menu.gd" id="1_wh67t"]
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_lj8tq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ offset_left = 63.0
 offset_top = 302.0
 offset_right = 63.0
 offset_bottom = 302.0
-script = ExtResource("1_wh67t")
+script = ExtResource("1_lj8tq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
