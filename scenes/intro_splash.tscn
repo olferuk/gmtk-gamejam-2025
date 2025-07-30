@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dibyeircv0k7q"]
+
+[ext_resource type="Script" path="res://src/intro_splash.gd" id="1_fqkg6"]
+[ext_resource type="Texture2D" uid="uid://c8a7qtax5p0vm" path="res://vfx/intro_splash.webp" id="2_anv5o"]
+
+[node name="IntroSplash" type="Node2D"]
+script = ExtResource("1_fqkg6")
+
+[node name="ComicSplash" type="TextureRect" parent="."]
+offset_left = 369.0
+offset_top = 67.0
+offset_right = 746.0
+offset_bottom = 538.0
+texture = ExtResource("2_anv5o")
+expand_mode = 1
+
+[node name="ClickToContinueLabel" type="Label" parent="."]
+offset_left = 964.0
+offset_top = 594.0
+offset_right = 1106.0
+offset_bottom = 617.0
+text = "Click to continue..."

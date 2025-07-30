@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://ee7wei17yxjm"]
+
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_wh67t"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 63.0
+offset_top = 302.0
+offset_right = 63.0
+offset_bottom = 302.0
+script = ExtResource("1_wh67t")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 186.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
