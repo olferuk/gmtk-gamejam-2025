@@ -2,5 +2,5 @@
 
 Participants: @olferuk, @lowmonopolium
 
-## _[Game name goes here]_
+## Ant Mill
 
