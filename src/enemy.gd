@@ -93,7 +93,9 @@ func _physics_process(delta: float) -> void:
 	var tangent_direction = Vector2(-sin(angle), cos(angle))
 
 	# Blend tangent with actual movement for more natural rotation
-	var final_direction = (tangent_direction * 0.7 + movement_dir * 0.3).normalized()
+	var final_direction = (
+		tangent_direction * 0.7 + movement_dir * 0.3
+	).normalized()
 	animated_sprite.rotation = final_direction.angle() + PI / 2
 
 	# Move to target position smoothly with limited speed
@@ -106,16 +108,18 @@ func _physics_process(delta: float) -> void:
 	velocity = desired_velocity
 	move_and_slide()
 
-func _update_radius_wobble(delta: float):
+func _update_radius_wobble(_delta: float):
 	# Use sine waves with different frequencies for smooth radius variation
 	var wobble = sin(noise_time * 2.3 + radius_noise_offset) * radius_wobble * 0.5
 	wobble += sin(noise_time * 1.7 + radius_noise_offset + 50.0) * radius_wobble * 0.3
 	current_radius = base_radius + wobble
 
-func _update_speed_variation(delta: float):
+func _update_speed_variation(_delta: float):
 	# Subtle speed changes over time
 	var speed_wobble = sin(noise_time * 1.1 + speed_noise_offset) * 0.2
-	speed_multiplier = 1.0 + randf_range(-speed_variation, speed_variation) * 0.5 + speed_wobble
+	speed_multiplier = 1.0 + randf_range(
+		-speed_variation, speed_variation
+	) * 0.5 + speed_wobble
 
 func set_player_reference(player: CharacterBody2D):
 	player_node = player
@@ -130,7 +134,11 @@ func _calculate_player_repulsion() -> Vector2:
 		return Vector2.ZERO
 
 	# Calculate repulsion force (stronger when closer)
-	var repulsion_direction = (global_position - player_node.global_position).normalized()
-	var repulsion_strength = player_repulsion_strength * (1.0 - distance_to_player / player_repulsion_radius)
+	var repulsion_direction = (
+		global_position - player_node.global_position
+	).normalized()
+	var repulsion_strength = player_repulsion_strength * (
+		1.0 - distance_to_player / player_repulsion_radius
+		)
 
 	return repulsion_direction * repulsion_strength
