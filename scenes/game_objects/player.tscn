@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://choluaobbfxji"]
+[gd_scene load_steps=10 format=3 uid="uid://choluaobbfxji"]
 
 [ext_resource type="Script" uid="uid://c6vbu8pcuvb7o" path="res://src/player.gd" id="1_ne3qo"]
 [ext_resource type="Texture2D" uid="uid://4f1sq861grep" path="res://vfx/sprite_sheets/Ants.png" id="2_6qfcv"]
@@ -11,11 +11,15 @@ region = Rect2(0, 288, 90, 96)
 atlas = ExtResource("2_6qfcv")
 region = Rect2(90, 288, 90, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1kulv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne3qo"]
 atlas = ExtResource("2_6qfcv")
 region = Rect2(0, 288, 90, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oprjt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qfcv"]
+atlas = ExtResource("2_6qfcv")
+region = Rect2(90, 288, 90, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kulv"]
 atlas = ExtResource("2_6qfcv")
 region = Rect2(180, 288, 90, 96)
 
@@ -34,10 +38,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1kulv")
+"texture": SubResource("AtlasTexture_ne3qo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oprjt")
+"texture": SubResource("AtlasTexture_6qfcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kulv")
 }],
 "loop": true,
 "name": &"walk",
@@ -54,9 +61,9 @@ script = ExtResource("1_ne3qo")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(596, 264)
 sprite_frames = SubResource("SpriteFrames_pnyev")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.129212
+frame_progress = 0.77818
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(595, 283)
