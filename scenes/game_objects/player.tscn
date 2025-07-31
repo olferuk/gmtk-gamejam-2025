@@ -57,14 +57,14 @@ height = 56.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ne3qo")
+SPEED = 250.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(596, 264)
+position = Vector2(1, -19)
 sprite_frames = SubResource("SpriteFrames_pnyev")
 animation = &"walk"
 autoplay = "idle"
 frame_progress = 0.77818
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(595, 283)
 shape = SubResource("CapsuleShape2D_h21u6")
