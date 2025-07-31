@@ -33,13 +33,7 @@ func _unhandled_input(event):
 
 func start_new_game():
 	accept_sound.play()
-	accept_sound.connect(
-		"finished",
-		Callable(self, "_on_accept_sound_finished"),
-		ConnectFlags.CONNECT_ONE_SHOT
-	)
-
-func _on_accept_sound_finished():
+	await accept_sound.finished
 	get_tree().change_scene_to_file("res://scenes/menus/intro_splash.tscn")
 
 func exit_game():
