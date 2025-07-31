@@ -9,6 +9,7 @@ class_name Enemy
 @export var speed_variation: float = 0.3 # Speed randomness
 @export var player_repulsion_strength: float = 50.0 # How much ants avoid player
 @export var player_repulsion_radius: float = 80.0 # Repulsion distance
+@export var max_velocity: float = 200.0 # Maximum movement speed
 
 var animated_sprite: AnimatedSprite2D
 
@@ -95,8 +96,14 @@ func _physics_process(delta: float) -> void:
 	var final_direction = (tangent_direction * 0.7 + movement_dir * 0.3).normalized()
 	animated_sprite.rotation = final_direction.angle() + PI / 2
 
-	# Move to target position smoothly
-	velocity = (target_pos - global_position) * 8.0
+	# Move to target position smoothly with limited speed
+	var desired_velocity = (target_pos - global_position) * 4.0 # Reduced from 8.0
+
+	# Limit maximum velocity to prevent "shooting" on collisions
+	if desired_velocity.length() > max_velocity:
+		desired_velocity = desired_velocity.normalized() * max_velocity
+
+	velocity = desired_velocity
 	move_and_slide()
 
 func _update_radius_wobble(delta: float):
