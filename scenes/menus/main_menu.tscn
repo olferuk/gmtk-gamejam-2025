@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ee7wei17yxjm"]
+[gd_scene load_steps=5 format=3 uid="uid://ee7wei17yxjm"]
 
 [ext_resource type="Script" uid="uid://qax2uqslwmvm" path="res://src/main_menu.gd" id="1_lj8tq"]
+[ext_resource type="Texture2D" uid="uid://copisapxhvt2m" path="res://vfx/select.png" id="2_ovrgc"]
+[ext_resource type="AudioStream" uid="uid://2p5n6u2loj75" path="res://sfx/misc-pointer-static.mp3" id="3_6bivr"]
+[ext_resource type="AudioStream" uid="uid://b8mmp8gf0yvvp" path="res://sfx/abs-confirm-2.mp3" id="4_imvie"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -26,6 +29,17 @@ text = "New Game"
 [node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="SelectIcon" type="Sprite2D" parent="."]
+position = Vector2(-18, 14)
+scale = Vector2(0.0761719, 0.0761719)
+texture = ExtResource("2_ovrgc")
+
+[node name="ChangeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6bivr")
+
+[node name="AcceptSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_imvie")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
