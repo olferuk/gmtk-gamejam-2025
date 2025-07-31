@@ -1,3 +1,69 @@
-[gd_scene format=3 uid="uid://choluaobbfxji"]
+[gd_scene load_steps=10 format=3 uid="uid://choluaobbfxji"]
 
-[node name="Player" type="Node2D"]
+[ext_resource type="Script" uid="uid://c6vbu8pcuvb7o" path="res://src/player.gd" id="1_ne3qo"]
+[ext_resource type="Texture2D" uid="uid://4f1sq861grep" path="res://vfx/sprite_sheets/Ants.png" id="2_6qfcv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlhh2"]
+atlas = ExtResource("2_6qfcv")
+region = Rect2(0, 288, 90, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r51s"]
+atlas = ExtResource("2_6qfcv")
+region = Rect2(90, 288, 90, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne3qo"]
+atlas = ExtResource("2_6qfcv")
+region = Rect2(0, 288, 90, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qfcv"]
+atlas = ExtResource("2_6qfcv")
+region = Rect2(90, 288, 90, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kulv"]
+atlas = ExtResource("2_6qfcv")
+region = Rect2(180, 288, 90, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnyev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlhh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r51s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne3qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qfcv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kulv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h21u6"]
+radius = 14.0
+height = 56.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ne3qo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -19)
+sprite_frames = SubResource("SpriteFrames_pnyev")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.201238
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_h21u6")
