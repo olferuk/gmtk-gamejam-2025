@@ -70,18 +70,18 @@ func _find_player():
 			if is_instance_valid(ant):
 				ant.set_player_reference(player_node)
 
-func _draw():
-	# Debug visualization (remove in final version)
-	if Engine.is_editor_hint():
-		return
-
-	# Draw concentric circles for reference
-	var radius_step = (max_radius - min_radius) / float(circle_count - 1)
-
-	for i in range(circle_count):
-		var radius = min_radius + (radius_step * i)
-		var alpha = 0.3 - (i * 0.02) # Fade outer circles
-		draw_arc(center_position, radius, 0, TAU, 64, Color(1, 1, 1, alpha), 1.0)
-
-	# Draw center point
-	draw_circle(center_position, 5, Color.RED)
+#func _draw():
+	## Debug visualization (remove in final version)
+	#if Engine.is_editor_hint():
+		#return
+#
+	## Draw concentric circles for reference
+	#var radius_step = (max_radius - min_radius) / float(circle_count - 1)
+#
+	#for i in range(circle_count):
+		#var radius = min_radius + (radius_step * i)
+		#var alpha = 0.3 - (i * 0.02) # Fade outer circles
+		#draw_arc(center_position, radius, 0, TAU, 64, Color(1, 1, 1, alpha), 1.0)
+#
+	## Draw center point
+	#draw_circle(center_position, 5, Color.RED)
