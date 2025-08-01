@@ -3,6 +3,10 @@ extends CharacterBody2D
 # Enemy ant that moves in a circle at fixed radius
 class_name Enemy
 
+@export var hat_index: int = 0
+@onready var hat: Sprite2D = $Hat
+
+
 @export var base_speed: float = 60.0
 @export var chaos_factor: float = 0.15 # How much randomness to add
 @export var radius_wobble: float = 20.0 # How much radius can vary
@@ -56,6 +60,13 @@ func initialize(center: Vector2, radius: float, start_angle: float):
 	animated_sprite = $AnimatedSprite2D
 	animated_sprite.play("walk")
 
+func get_hat(index: int, texture: Texture2D, region: Rect2):
+	hat_index = index
+	
+	hat.texture = texture
+	hat.region_enabled = true
+	hat.region_rect = region
+
 func _physics_process(delta: float) -> void:
 	if not is_active:
 		return
@@ -95,8 +106,8 @@ func _physics_process(delta: float) -> void:
 	# Blend tangent with actual movement for more natural rotation
 	var final_direction = (
 		tangent_direction * 0.7 + movement_dir * 0.3
-	).normalized()
-	animated_sprite.rotation = final_direction.angle() + PI / 2
+	).normalized().angle() + PI / 2
+	rotation = final_direction
 
 	# Move to target position smoothly with limited speed
 	var desired_velocity = (target_pos - global_position) * 4.0 # Reduced from 8.0

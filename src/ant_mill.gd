@@ -1,6 +1,5 @@
 extends Node2D
 
-# Ant Mill system - manages concentric circles of ants
 class_name AntMill
 
 @export var enemy_scene: PackedScene = preload(
@@ -14,6 +13,18 @@ class_name AntMill
 var center_position: Vector2
 var active_ants: Array[Enemy] = []
 var player_node: CharacterBody2D = null
+
+const HAT_ATLAS = preload("res://vfx/sprite_sheets/Ants-hats-export.png")
+const HAT_ATLAS_BUGS = preload("res://vfx/sprite_sheets/Bugs-hats-export.png")
+const HAT_ROWS = 8
+const HAT_COLUMNS = 12
+
+var HAT_SIZE := HAT_ATLAS.get_size() / Vector2(HAT_COLUMNS, HAT_ROWS)
+
+const THE_ROW = 3
+const THE_ROW_BUGS = 0
+const HATS_INDICES = [0, 1, 2, 3]
+const HATS_INDICES_BUGS = [0, 1, 2, 3, 4]
 
 func _ready():
 	center_position = Vector2.ZERO
@@ -54,6 +65,27 @@ func spawn_ant_at_position(radius: float, angle: float):
 		new_ant.set_player_reference(player_node)
 
 	active_ants.append(new_ant)
+	
+	give_ant_hat(new_ant)
+
+func give_ant_hat(ant: Enemy):
+	var for_bug = randi() % 2
+	var index: int
+	var atlas: Texture2D
+	if for_bug:
+		index = HATS_INDICES_BUGS[randi() % len(HATS_INDICES_BUGS)]
+		atlas = HAT_ATLAS_BUGS
+	else:
+		index = HATS_INDICES[randi() % len(HATS_INDICES)]
+		atlas = HAT_ATLAS
+	var row = THE_ROW_BUGS if for_bug else THE_ROW
+	var region = Rect2(
+		index*HAT_SIZE.x,
+		row*HAT_SIZE.y,
+		HAT_SIZE.x,
+		HAT_SIZE.y
+	)
+	ant.get_hat(index, atlas, region)
 
 func _find_player():
 	# Find player node in parent
