@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn3e76ydwns7j"
-path="res://.godot/imported/Bugs-hats-export.png-a2f4d95b8a3cb558ea0e36bf651e4549.ctex"
+uid="uid://c8a7qtax5p0vm"
+path="res://.godot/imported/intro_splash.webp-c6a2e7896c297429342859acf60510ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/sprite_sheets/Bugs-hats-export.png"
-dest_files=["res://.godot/imported/Bugs-hats-export.png-a2f4d95b8a3cb558ea0e36bf651e4549.ctex"]
+source_file="res://vfx/_obsolete/intro_splash.webp"
+dest_files=["res://.godot/imported/intro_splash.webp-c6a2e7896c297429342859acf60510ed.ctex"]
 
 [params]
 

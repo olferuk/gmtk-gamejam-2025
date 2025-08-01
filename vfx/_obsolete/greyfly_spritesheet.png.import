@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8a7qtax5p0vm"
-path="res://.godot/imported/intro_splash.webp-9bc2ab5004d755f3869910b809ab4b35.ctex"
+uid="uid://c2bugrmcixtm1"
+path="res://.godot/imported/greyfly_spritesheet.png-72d06a464198c4301de47e08577e90b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/intro_splash.webp"
-dest_files=["res://.godot/imported/intro_splash.webp-9bc2ab5004d755f3869910b809ab4b35.ctex"]
+source_file="res://vfx/_obsolete/greyfly_spritesheet.png"
+dest_files=["res://.godot/imported/greyfly_spritesheet.png-72d06a464198c4301de47e08577e90b4.ctex"]
 
 [params]
 
