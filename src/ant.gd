@@ -2,8 +2,6 @@ extends Node2D
 
 class_name AntBase
 
-const TILE_SIZE = 32
-
 var is_true: bool = false
 
 @onready var body := $Body
@@ -18,6 +16,8 @@ var is_true: bool = false
 var head_index: int = 0
 var body_index: int = 0
 var feature_index: int = 0
+
+const TILE_SIZE = 32
 
 func _ready():
 	head.visible = false

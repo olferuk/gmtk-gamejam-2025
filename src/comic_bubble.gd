@@ -1,9 +1,11 @@
 extends MarginContainer
 
+signal finish_displaying()
+
 @onready var label: Label = $MarginContainer/Label
 @onready var timer: Timer = $Timer
 
-const MAX_WIDTH = 256
+const MAX_WIDTH = 160
 var text = ""
 var letter_index = 0
 
@@ -11,7 +13,6 @@ var time_per_letter = 0.03
 var space_time = 0.06
 var punctuation_time = 0.2
 
-signal finish_displaying()
 
 func display_text(text_to_display: String):
 	text = text_to_display
