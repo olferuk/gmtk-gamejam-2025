@@ -77,13 +77,11 @@ func _handle_interaction_detection() -> void:
 
 	var new_interactable: CharacterBody2D = null
 
-	# Сначала проверяем в направлении движения
 	if interaction_raycast.is_colliding():
 		var collider = interaction_raycast.get_collider()
 		if collider is CharacterBody2D and collider.has_node("InteractionComponent"):
 			new_interactable = collider
 
-	# Если ничего не найдено, проверяем в других направлениях
 	if not new_interactable:
 		new_interactable = _find_interactable_in_nearby_directions()
 
