@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://667i5x5w23xn" path="res://src/start_screen.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="2_font"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_title"]
+[sub_resource type="LabelSettings" id="LabelSettings_njl8u"]
 font = ExtResource("2_font")
-font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_continue"]
 font = ExtResource("2_font")
@@ -42,8 +41,8 @@ layout_mode = 2
 
 [node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "НАЙДИ БИБУ"
-label_settings = SubResource("LabelSettings_title")
+text = "FIND BEEBA"
+label_settings = SubResource("LabelSettings_njl8u")
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer"]

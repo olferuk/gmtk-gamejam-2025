@@ -1,6 +1,6 @@
 extends Control
 
-@export var blink_speed: float = 2.0
+@export var blink_speed: float = 4.0
 
 @onready var continue_label: Label = $CenterContainer/VBoxContainer/ContinueLabel
 
