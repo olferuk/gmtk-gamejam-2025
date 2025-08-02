@@ -8,9 +8,9 @@ var is_true: bool = false
 @onready var head := $Head
 @onready var face_features := $FaceFeatures
 @onready var limbs := $Limbs
+@onready var legs := $Legs
 
 @onready var interaction_component: InteractionComponent = $InteractionComponent
-
 
 @export var head_count: int = 1
 @export var body_count: int = 1
@@ -37,6 +37,7 @@ func build(is_true_ant: bool, idx_head: int, idx_body: int, idx_feat: int):
 	head_index = idx_head
 	body_index = idx_body
 	feature_index = idx_feat
+	
 	_apply_parts()
 
 func _apply_parts():
@@ -46,6 +47,7 @@ func _apply_parts():
 	
 	head.region_rect = _calc_region(head_index, head.texture)
 	body.region_rect = _calc_region(body_index, body.texture)
+	limbs.region_rect = _calc_region(0, limbs.texture)
 	
 	if feature_index >= 0:
 		face_features.visible = true
@@ -57,7 +59,6 @@ func _apply_parts():
 
 func _calc_region(index: int, tex: Texture2D) -> Rect2i:
 	return Rect2i(index * TILE_SIZE, 0, TILE_SIZE, int(tex.get_size().y))
-
 
 func _on_interaction_started() -> void:
 	print('hi')
