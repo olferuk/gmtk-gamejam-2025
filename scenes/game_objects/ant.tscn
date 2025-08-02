@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://g15t2jia54dt"]
+[gd_scene load_steps=8 format=3 uid="uid://g15t2jia54dt"]
 
 [ext_resource type="Script" uid="uid://d0r327jfrvb0" path="res://src/ant.gd" id="1_mawhd"]
 [ext_resource type="Texture2D" uid="uid://t1sg7wsql6os" path="res://vfx/sprite_sheets/body_normal.png" id="2_fof1s"]
 [ext_resource type="Texture2D" uid="uid://dbsxatg3y3yox" path="res://vfx/sprite_sheets/head_normal.png" id="3_pxrx3"]
 [ext_resource type="Texture2D" uid="uid://d0w2us3gvbra1" path="res://vfx/sprite_sheets/extra_beards.png" id="4_pxrx3"]
+[ext_resource type="Script" uid="uid://byp63y8w4j6p1" path="res://src/interaction_component.gd" id="5_lfmnp"]
+[ext_resource type="Texture2D" uid="uid://cjw056iecycqx" path="res://vfx/comic-bubble.png" id="6_8xb1t"]
 
-[node name="Ant" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xb1t"]
+radius = 5.09902
+
+[node name="Ant" type="CharacterBody2D"]
 script = ExtResource("1_mawhd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("CircleShape2D_8xb1t")
 
 [node name="Body" type="Sprite2D" parent="."]
 texture = ExtResource("2_fof1s")
@@ -24,3 +33,10 @@ visible = false
 texture = ExtResource("4_pxrx3")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
+
+[node name="InteractionComponent" type="Node2D" parent="."]
+script = ExtResource("5_lfmnp")
+
+[node name="InteractionIndicator" type="Sprite2D" parent="InteractionComponent"]
+visible = false
+texture = ExtResource("6_8xb1t")

@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 class_name AntBase
 
@@ -8,6 +8,9 @@ var is_true: bool = false
 @onready var head := $Head
 @onready var face_features := $FaceFeatures
 @onready var limbs := $Limbs
+
+@onready var interaction_component: InteractionComponent = $InteractionComponent
+
 
 @export var head_count: int = 1
 @export var body_count: int = 1
@@ -23,6 +26,9 @@ func _ready():
 	head.visible = false
 	body.visible = false
 	limbs.visible = false
+	
+	if interaction_component:
+		interaction_component.interaction_started.connect(_on_interaction_started)
 
 # ❗ You must set the textures (like head.texture = ...) 
 #    before calling build().
@@ -51,3 +57,7 @@ func _apply_parts():
 
 func _calc_region(index: int, tex: Texture2D) -> Rect2i:
 	return Rect2i(index * TILE_SIZE, 0, TILE_SIZE, int(tex.get_size().y))
+
+
+func _on_interaction_started() -> void:
+	print('hi')
