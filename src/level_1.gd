@@ -4,6 +4,12 @@ extends Node2D
 
 const MONET = preload("res://scenes/game_objects/ant_monet.tscn")
 
+const EXAMPLE_DIALOGUE: Array[String] = [
+	"Hey there!",
+	"It's not me, it's another guy",
+	"And he is standing ooover there!"
+]
+
 func _ready() -> void:
 	for i in range(15):
 		add_monet_ant(false)
@@ -18,3 +24,7 @@ func add_monet_ant(is_goal: bool):
 	# Customize
 	var beard_idx = randi() % 3 if randf() < 0.25 else -1
 	ant.build(is_goal, randi() % 8, 0, beard_idx)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_dialogue_start"):
+		DialogueManager.start_dialogue(Vector2(-40, 0), EXAMPLE_DIALOGUE)
