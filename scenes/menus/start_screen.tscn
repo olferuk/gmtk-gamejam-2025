@@ -41,7 +41,7 @@ layout_mode = 2
 
 [node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "FIND BEEBA"
+text = "FIND BEEBA. press e to interact."
 label_settings = SubResource("LabelSettings_njl8u")
 horizontal_alignment = 1
 

@@ -3,8 +3,8 @@ extends Node2D
 @export var wave_rows: int = 3
 @export var wave_direction: Vector2 = Vector2.RIGHT
 @export var spawn_delay: float = 2.0
-@export var ant_speed: float = 100.0
-@export var ants_per_row: int = 5
+@export var ant_speed: float = 70.0
+#@export var ants_per_row: int = 1
 
 @onready var ants: Node2D = $Ants
 @onready var camera: Camera2D = $Camera2D
@@ -53,18 +53,18 @@ func _spawn_wave() -> void:
 		var y_pos = start_y + row * row_spacing
 		var x_spawn = camera_bounds.position.x - 50
 
-		for ant_idx in range(ants_per_row):
-			var ant = ENEMY_SCENE.instantiate()
-			ants.add_child(ant)
+		#for ant_idx in range(ants_per_row):
+		var ant = ENEMY_SCENE.instantiate()
+		ants.add_child(ant)
 
-			var spacing = 40.0
-			ant.global_position = Vector2(
-				x_spawn - ant_idx * spacing,
-				y_pos + randf_range(-10, 10)
-			)
+		var spacing = 40.0
+		ant.global_position = Vector2(
+			x_spawn - spacing,
+			y_pos + randf_range(-10, 10)
+		)
 
-			if ant.has_method("set_movement"):
-				ant.set_movement(wave_direction * ant_speed)
+		if ant.has_method("set_movement"):
+			ant.set_movement(wave_direction * ant_speed)
 
 func _cleanup_distant_ants() -> void:
 	var cleanup_distance = camera_bounds.size.x * 0.6
