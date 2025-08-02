@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://be1srgjhvagor"]
 
 [ext_resource type="PackedScene" uid="uid://g15t2jia54dt" path="res://scenes/game_objects/ant.tscn" id="1_fiodc"]
-[ext_resource type="Script" uid="uid://cwjpegq4mbikk" path="res://src/ant_monet.gd" id="2_y1f8s"]
+[ext_resource type="Script" path="res://src/ant_monet.gd" id="2_y1f8s"]
 
 [node name="Ant" instance=ExtResource("1_fiodc")]
 script = ExtResource("2_y1f8s")

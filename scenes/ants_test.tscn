@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcttlg3dxwyti"]
+[gd_scene load_steps=3 format=3 uid="uid://dcttlg3dxwyti"]
 
 [ext_resource type="Script" uid="uid://bxl812y3ypeft" path="res://src/ants_test.gd" id="1_tkyur"]
+[ext_resource type="PackedScene" uid="uid://choluaobbfxji" path="res://scenes/game_objects/player.tscn" id="2_player"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tkyur")
@@ -18,5 +19,6 @@ color = Color(0.929412, 0.823529, 0.647059, 1)
 
 [node name="Ants" type="Node2D" parent="."]
 
+[node name="Player" parent="." instance=ExtResource("2_player")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)

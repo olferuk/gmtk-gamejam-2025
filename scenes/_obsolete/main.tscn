@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6gx4hhc6ifcx"]
 
-[ext_resource type="Script" uid="uid://dyq87ys8q3u4n" path="res://src/_obsolete/ant_mill.gd" id="1_ant_mill_script"]
-[ext_resource type="PackedScene" uid="uid://choluaobbfxji" path="res://scenes/_obsolete/player.tscn" id="2_player_scene"]
+[ext_resource type="Script" path="res://src/_obsolete/ant_mill.gd" id="1_ant_mill_script"]
+[ext_resource type="PackedScene" uid="uid://choluaobbfxji" path="res://scenes/game_objects/player.tscn" id="2_player_scene"]
 
 [node name="Main" type="Node2D"]
 
