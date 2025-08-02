@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AntMill"
-run/main_scene="uid://b6gx4hhc6ifcx"
+run/main_scene="uid://dcttlg3dxwyti"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

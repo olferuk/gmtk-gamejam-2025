@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b60kt65x2ddh1"
-path="res://.godot/imported/greenfly_spritesheet.png-6919e78f2157779077c50b6d864a928c.ctex"
+uid="uid://b07e0acwh0aij"
+path="res://.godot/imported/Ants-hats-export.png-65890fe950e3f9bffd62a730ee6735c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/sprite_sheets/greenfly_spritesheet.png"
-dest_files=["res://.godot/imported/greenfly_spritesheet.png-6919e78f2157779077c50b6d864a928c.ctex"]
+source_file="res://vfx/_obsolete/Ants-hats-export.png"
+dest_files=["res://.godot/imported/Ants-hats-export.png-65890fe950e3f9bffd62a730ee6735c0.ctex"]
 
 [params]
 

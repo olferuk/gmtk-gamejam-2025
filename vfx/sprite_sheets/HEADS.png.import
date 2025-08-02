@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b07e0acwh0aij"
-path="res://.godot/imported/Ants-hats-export.png-b37557641546f794104b896ba1e12ec1.ctex"
+uid="uid://bn5shn2y0b3pj"
+path="res://.godot/imported/HEADS.png-08c55aaa1330dd924ee366c5f60005c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/sprite_sheets/Ants-hats-export.png"
-dest_files=["res://.godot/imported/Ants-hats-export.png-b37557641546f794104b896ba1e12ec1.ctex"]
+source_file="res://vfx/sprite_sheets/HEADS.png"
+dest_files=["res://.godot/imported/HEADS.png-08c55aaa1330dd924ee366c5f60005c2.ctex"]
 
 [params]
 

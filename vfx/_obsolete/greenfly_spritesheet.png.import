@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb0in3trkbuny"
-path="res://.godot/imported/Item_Sheet_Flora&Fauna_0.png-731750631b7af7c090869f2e80480ff6.ctex"
+uid="uid://b60kt65x2ddh1"
+path="res://.godot/imported/greenfly_spritesheet.png-f1f4b957b19db2e5b2a2171d6a8b9429.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/sprite_sheets/Item_Sheet_Flora&Fauna_0.png"
-dest_files=["res://.godot/imported/Item_Sheet_Flora&Fauna_0.png-731750631b7af7c090869f2e80480ff6.ctex"]
+source_file="res://vfx/_obsolete/greenfly_spritesheet.png"
+dest_files=["res://.godot/imported/greenfly_spritesheet.png-f1f4b957b19db2e5b2a2171d6a8b9429.ctex"]
 
 [params]
 
