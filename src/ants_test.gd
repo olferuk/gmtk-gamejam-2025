@@ -9,17 +9,25 @@ extends Node2D
 @onready var ants: Node2D = $Ants
 @onready var camera: Camera2D = $Camera2D
 @onready var player: CharacterBody2D = $Player
+@onready var timer_label: Label = $UI/TimerLabel
 
 const ENEMY_SCENE = preload("res://scenes/game_objects/enemy.tscn")
 
 var camera_bounds: Rect2
 var spawn_timer: float = 0.0
+var game_timer: float = 10.0
+var is_game_over: bool = false
 
 func _ready() -> void:
 	_calculate_camera_bounds()
 	_spawn_wave()
 
 func _process(delta: float) -> void:
+	if is_game_over:
+		return
+
+	_update_game_timer(delta)
+
 	spawn_timer += delta
 	if spawn_timer >= spawn_delay:
 		spawn_timer = 0.0
@@ -64,3 +72,21 @@ func _cleanup_distant_ants() -> void:
 	for ant in ants.get_children():
 		if ant.global_position.x > camera_bounds.position.x + camera_bounds.size.x + cleanup_distance:
 			ant.queue_free()
+
+func _update_game_timer(delta: float) -> void:
+	game_timer -= delta
+
+	if game_timer <= 0:
+		game_timer = 0
+		_game_over()
+
+	_update_timer_display()
+
+func _update_timer_display() -> void:
+	var minutes = int(game_timer / 60)
+	var seconds = int(game_timer) % 60
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
+
+func _game_over() -> void:
+	is_game_over = true
+	get_tree().change_scene_to_file("res://scenes/menus/game_over.tscn")
