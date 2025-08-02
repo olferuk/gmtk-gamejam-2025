@@ -1,26 +1,28 @@
 [gd_scene load_steps=10 format=3 uid="uid://b1nnwiyfy1b5a"]
 
-[ext_resource type="Script" uid="uid://b7dvncg1vquai" path="res://src/_obsolete/enemy.gd" id="1_j82xs"]
-[ext_resource type="Texture2D" uid="uid://4f1sq861grep" path="res://vfx/_obsolete/Ants.png" id="2_t0gvx"]
+[ext_resource type="Script" uid="uid://dfmpsgvh5ffob" path="res://src/enemy.gd" id="1_3sg7k"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sxam2"]
+load_path = "res://.godot/imported/Ants.png-ee975e8cabd27adfd7759d4ed236dd4c.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3sg7k"]
-atlas = ExtResource("2_t0gvx")
+atlas = SubResource("CompressedTexture2D_sxam2")
 region = Rect2(540, 288, 90, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmiis"]
-atlas = ExtResource("2_t0gvx")
+atlas = SubResource("CompressedTexture2D_sxam2")
 region = Rect2(630, 288, 90, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lwxo6"]
-atlas = ExtResource("2_t0gvx")
+atlas = SubResource("CompressedTexture2D_sxam2")
 region = Rect2(540, 288, 90, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75w5e"]
-atlas = ExtResource("2_t0gvx")
+atlas = SubResource("CompressedTexture2D_sxam2")
 region = Rect2(630, 288, 90, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mor4x"]
-atlas = ExtResource("2_t0gvx")
+atlas = SubResource("CompressedTexture2D_sxam2")
 region = Rect2(720, 288, 90, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pnyev"]
@@ -55,7 +57,7 @@ animations = [{
 height = 40.0
 
 [node name="Enemy" type="CharacterBody2D"]
-script = ExtResource("1_j82xs")
+script = ExtResource("1_3sg7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -19)
@@ -65,6 +67,3 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_h21u6")
-
-[node name="Hat" type="Sprite2D" parent="."]
-position = Vector2(0, -20)
