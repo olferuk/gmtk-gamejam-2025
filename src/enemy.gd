@@ -22,4 +22,4 @@ func set_movement(direction_and_speed: Vector2) -> void:
 	movement_speed = direction_and_speed.length()
 
 func _on_interaction_started() -> void:
-	print("Enemy interaction started!")
+	print("BEEBA interaction started!")
