@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g1nx7ljkl1b2"
-path="res://.godot/imported/heads_monet.png-634b65d4f052a53e14c13c329083b416.ctex"
+uid="uid://dmlmstse3kxv2"
+path="res://.godot/imported/body_tshirts.png-4bb0496465c1e7963138c546d2787d18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/sprite_sheets/heads_monet.png"
-dest_files=["res://.godot/imported/heads_monet.png-634b65d4f052a53e14c13c329083b416.ctex"]
+source_file="res://vfx/sprite_sheets/body_tshirts.png"
+dest_files=["res://.godot/imported/body_tshirts.png-4bb0496465c1e7963138c546d2787d18.ctex"]
 
 [params]
 

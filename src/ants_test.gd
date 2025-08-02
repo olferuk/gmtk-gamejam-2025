@@ -8,7 +8,8 @@ extends Node2D
 
 @onready var ants: Node2D = $Ants
 @onready var camera: Camera2D = $Camera2D
-@onready var player: CharacterBody2D = $Player
+#@onready var player: CharacterBody2D = $Player
+var player := 1.
 @onready var timer_label: Label = $UI/TimerLabel
 
 const ENEMY_SCENE = preload("res://scenes/game_objects/enemy.tscn")
