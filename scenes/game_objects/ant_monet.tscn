@@ -6,8 +6,5 @@
 [node name="Ant" instance=ExtResource("1_fiodc")]
 script = ExtResource("2_y1f8s")
 
-[node name="Body" parent="." index="0"]
-visible = true
-
 [node name="Limbs" parent="." index="1"]
 visible = true

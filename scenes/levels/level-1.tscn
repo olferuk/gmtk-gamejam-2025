@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjeohg7yiliol"]
+
+[ext_resource type="Script" uid="uid://c8vsvmnktp0x8" path="res://src/level_1.gd" id="1_ktyk1"]
+
+[node name="Level-1" type="Node2D"]
+script = ExtResource("1_ktyk1")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(550, 350)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 2
+color = Color(0.941176, 0.823529, 0.647059, 1)
+
+[node name="Ants" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

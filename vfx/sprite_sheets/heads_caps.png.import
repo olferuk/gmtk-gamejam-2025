@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g1nx7ljkl1b2"
-path="res://.godot/imported/heads_monet.png-634b65d4f052a53e14c13c329083b416.ctex"
+uid="uid://6cs04uqtqva"
+path="res://.godot/imported/heads_caps.png-9131fd2300af5ff6640d6b4b114d619b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://vfx/sprite_sheets/heads_monet.png"
-dest_files=["res://.godot/imported/heads_monet.png-634b65d4f052a53e14c13c329083b416.ctex"]
+source_file="res://vfx/sprite_sheets/heads_caps.png"
+dest_files=["res://.godot/imported/heads_caps.png-9131fd2300af5ff6640d6b4b114d619b.ctex"]
 
 [params]
 

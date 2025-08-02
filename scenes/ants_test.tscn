@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcttlg3dxwyti"]
+[gd_scene load_steps=4 format=3 uid="uid://dcttlg3dxwyti"]
 
 [ext_resource type="Script" uid="uid://bxl812y3ypeft" path="res://src/ants_test.gd" id="1_tkyur"]
-[ext_resource type="PackedScene" uid="uid://choluaobbfxji" path="res://scenes/game_objects/player.tscn" id="2_player"]
 [ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="3_font"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_timer"]
@@ -23,8 +22,6 @@ layout_mode = 2
 color = Color(0.929412, 0.823529, 0.647059, 1)
 
 [node name="Ants" type="Node2D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("2_player")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

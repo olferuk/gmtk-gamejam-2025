@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciel6t5i8sopy"]
+
+[ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="1_0wcgq"]
+[ext_resource type="Script" uid="uid://bop5i3ei84a7v" path="res://src/comic_bubble.gd" id="1_1wm6u"]
+[ext_resource type="Texture2D" uid="uid://cjw056iecycqx" path="res://vfx/comic-bubble.png" id="1_i7lqb"]
+
+[node name="ComicBubble" type="MarginContainer"]
+script = ExtResource("1_1wm6u")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_i7lqb")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_0wcgq")
+theme_override_font_sizes/font_size = 8
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
