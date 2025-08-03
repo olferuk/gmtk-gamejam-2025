@@ -33,7 +33,7 @@ func process_spawning(
 		spawned_target = true
 		spawn_ant(camera, ants_container, true)
 
-	teleport_distant_ants(camera, ants_container)
+	teleport_distant_ants(camera)
 	update_ant_z_index(ants_container)
 
 func spawn_ant(camera: Camera2D, ants_container: Node2D, target_ant: bool) -> void:
@@ -70,13 +70,9 @@ func spawn_ant(camera: Camera2D, ants_container: Node2D, target_ant: bool) -> vo
 	var direction = Vector2(direction_x, (target_y - spawn_y) / camera_bounds.size.x * 2)
 	direction = direction.normalized()
 
-	if direction.x < 0:
-		ant.scale.x = -1
-	else:
-		ant.scale.x = 1
-
 	var ant_speed = randf_range(min_ant_speed, max_ant_speed)
 	ant.set_movement(direction * ant_speed)
+	ant.set_sprite_direction(direction)
 
 	ant_data.append({
 		"ant": ant,
@@ -87,7 +83,7 @@ func spawn_ant(camera: Camera2D, ants_container: Node2D, target_ant: bool) -> vo
 		"speed": ant_speed
 	})
 
-func teleport_distant_ants(camera: Camera2D, _ants_container: Node2D) -> void:
+func teleport_distant_ants(camera: Camera2D) -> void:
 	var camera_bounds = _calculate_camera_bounds(camera)
 	var teleport_distance = camera_bounds.size.x * 0.6
 
@@ -129,12 +125,8 @@ func teleport_distant_ants(camera: Camera2D, _ants_container: Node2D) -> void:
 			var direction = Vector2(dx, (ty - new_y) / camera_bounds.size.x * 2)
 			direction = direction.normalized()
 
-			if direction.x < 0:
-				ant.scale.x = -1
-			else:
-				ant.scale.x = 1
-
 			ant.set_movement(direction * data.speed)
+			ant.set_sprite_direction(direction)
 
 			data.direction = direction
 			data.original_spawn_y = new_y
