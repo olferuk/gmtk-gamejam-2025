@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var speed: float = 100.0
 
-@onready var animated_sprite: Sprite2D = $Sprite2D
+@onready var legs := $Legs
 @onready var interaction_raycast: RayCast2D = $InteractionRayCast
 
 var camera_bounds: Rect2
@@ -31,41 +31,43 @@ func _handle_movement(_delta: float) -> void:
 		velocity = input_vector * speed
 	else:
 		velocity = Vector2.ZERO
+
 	move_and_slide()
 
 func _update_animation() -> void:
-	pass
-	#if velocity != Vector2.ZERO:
-		#if animated_sprite.animation != "walk":
-			#animated_sprite.play("walk")
-	#else:
-		#if animated_sprite.animation != "idle":
-			#animated_sprite.play("idle")
+	if velocity != Vector2.ZERO:
+		if legs.animation != "walk":
+			legs.play("walk")
+	else:
+		if legs.animation != "idle":
+			legs.play("idle")
 
 func _update_camera_bounds() -> void:
 	var camera = get_viewport().get_camera_2d()
-	if camera:
-		var viewport_size = get_viewport().get_visible_rect().size / camera.zoom
-		var camera_pos = camera.global_position
+	if not camera:
+		return
+	var viewport_size = get_viewport().get_visible_rect().size / camera.zoom
+	var camera_pos = camera.global_position
 
-		camera_bounds = Rect2(
-			camera_pos - viewport_size / 2,
-			viewport_size
-		)
+	camera_bounds = Rect2(
+		camera_pos - viewport_size / 2,
+		viewport_size
+	)
 
 func _clamp_to_camera_bounds() -> void:
-	if camera_bounds.size != Vector2.ZERO:
-		var margin = 20.0
-		global_position.x = clampf(
-			global_position.x,
-			camera_bounds.position.x + margin,
-			camera_bounds.position.x + camera_bounds.size.x - margin
-		)
-		global_position.y = clampf(
-			global_position.y,
-			camera_bounds.position.y + margin,
-			camera_bounds.position.y + camera_bounds.size.y - margin
-		)
+	if camera_bounds.size == Vector2.ZERO:
+		return
+	var margin = 20.0
+	global_position.x = clampf(
+		global_position.x,
+		camera_bounds.position.x + margin,
+		camera_bounds.position.x + camera_bounds.size.x - margin
+	)
+	global_position.y = clampf(
+		global_position.y,
+		camera_bounds.position.y + margin,
+		camera_bounds.position.y + camera_bounds.size.y - margin
+	)
 
 func _handle_interaction_detection() -> void:
 	if not interaction_raycast:
@@ -89,7 +91,7 @@ func _handle_interaction_detection() -> void:
 func _update_raycast_direction() -> void:
 	if velocity.length() > 0:
 		last_movement_direction = velocity.normalized()
-	interaction_raycast.target_position = last_movement_direction * 59.0
+	interaction_raycast.target_position = last_movement_direction * 18.0
 
 func _set_current_interactable(interactable: CharacterBody2D) -> void:
 	if current_interactable and is_instance_valid(current_interactable):

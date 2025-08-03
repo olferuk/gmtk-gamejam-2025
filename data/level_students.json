@@ -1,0 +1,57 @@
+{
+	"intro_title": "Campus Casting Call",
+	"intro": "So, um... okay, there's a casting thing happening on campus today. 
+	They're looking for someone who looks like Harry Potter. 
+	Yeah, like, *the* Harry Potter, you know?
+
+	The thing is, a bunch of students showed up, all hoping it's them.
+	Everyone's awkward, everyone's stressed... and everyone’s hyper-aware of, like, every pimple on their face.
+
+	But *one* guy — one *suspiciously perfect* wizardy guy — he’s not here by accident.
+	Your job is to find him before someone has a full-on anxiety spiral.",
+	
+	"success_msgs": [
+		"Okay, fine, you got me.",
+		"How’d you know it wasn’t just a pimple?",
+		"Good catch, though.",
+	],
+	
+	"wrong_msgs": [
+		[
+			"Wait—me? No no no.",
+			"I only look like this ‘cause I didn’t sleep last night."
+		],
+		[
+			"I swear this zit wasn’t here yesterday.",
+			"Don’t look at me, I’m peeling!"
+		],
+		[
+			"I do *have* glasses, yes...",
+			"But I’m nearsighted *and* emotionally fragile."
+		],
+		[
+			"Me? A wizard? I panic ordering coffee.",
+			"And I think my T-zone is actively rebelling."
+		],
+		[
+			"My mom says I’m handsome 'in good lighting'.",
+			"But I don’t think wizards get breakouts like this."
+		],
+		[
+			"Wait, there’s a camera?",
+			"Okay I’m gonna throw up."
+		],
+		[
+			"These aren’t robes, it’s laundry day.",
+			"And this pimple’s basically glowing—no magic required."
+		],
+		[
+			"Honestly, I was just looking for the library.",
+			"But now I feel deeply judged."
+		],
+		[
+			"Is it the scarf? It’s not even Gryffindor colors!",
+			"Also, my skin is *so* oily right now."
+		]
+	]
+}

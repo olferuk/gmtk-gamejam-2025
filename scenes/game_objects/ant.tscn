@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://g15t2jia54dt"]
+[gd_scene load_steps=17 format=3 uid="uid://g15t2jia54dt"]
 
 [ext_resource type="Script" uid="uid://d0r327jfrvb0" path="res://src/ant.gd" id="1_mawhd"]
 [ext_resource type="Texture2D" uid="uid://t1sg7wsql6os" path="res://vfx/sprite_sheets/body_normal.png" id="2_fof1s"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://blsdusm3xjkrp" path="res://vfx/sprite_sheets/extra_sunglasses.png" id="5_s3vhq"]
 [ext_resource type="Texture2D" uid="uid://d36kmi7fpv3ho" path="res://vfx/sprite_sheets/running/legs_run1.png" id="6_s3vhq"]
 [ext_resource type="Texture2D" uid="uid://crjlebeegoqnk" path="res://vfx/sprite_sheets/running/legs_run2.png" id="7_0dok6"]
+[ext_resource type="Texture2D" uid="uid://d2sn43qw4g2qi" path="res://vfx/sprite_sheets/shadow.png" id="7_qsbi0"]
 [ext_resource type="Texture2D" uid="uid://gb0gk8gorxst" path="res://vfx/sprite_sheets/running/legs_run3.png" id="8_qsbi0"]
 [ext_resource type="Texture2D" uid="uid://bu6um6bogggpu" path="res://vfx/sprite_sheets/running/legs_run4.png" id="9_nldh7"]
 [ext_resource type="Texture2D" uid="uid://bq3kyahu5d1uf" path="res://vfx/sprite_sheets/running/legs_run5.png" id="10_kxfxx"]
@@ -108,12 +109,17 @@ texture = ExtResource("4_pxrx3")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(0, 2)
+texture = ExtResource("7_qsbi0")
+
 [node name="Legs" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.705882, 0.705882, 0.705882, 1)
 sprite_frames = SubResource("SpriteFrames_4is2n")
 animation = &"running"
 autoplay = "running"
-frame_progress = 0.0957275
+frame_progress = 0.314882
 
 [node name="InteractionComponent" type="Node2D" parent="."]
 script = ExtResource("5_lfmnp")

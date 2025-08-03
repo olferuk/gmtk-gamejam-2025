@@ -1,0 +1,62 @@
+{
+	"intro_title": "The Monet Color",
+	
+	"intro": "Welcome to the terrace, darling — where only those with truly refined vision may tread.
+	Today’s diversion: we are in search of a most elusive hue — Steel Blue, mind you, not some pedestrian knockoff.
+	
+	Among our well-accessorized circle sits one gentleman with a hat bearing a strip of that very color.  
+	Your task is to spot him. Do take care — the light shifts, and not all eyes are properly trained in nuance.  
+	
+	Of course, a misstep will only reveal how dreadfully ordinary your perception is.",
+	
+	"success_msgs": [
+		"Ah, there you are.",
+		"At last, someone whose eyes aren't bound by vulgar prisms.",
+		"Steel Blue, of course. Quiet strength.",
+		"An icy whisper of intellect.",
+		"Precisely what Monet might have chosen for a sky just before dusk.",
+	],
+	
+	"wrong_msgs": [
+		[
+			"Dark Lavender, you say?",
+			"Well, it's not everyone's taste, but I find it rather soulful."
+		],
+		[
+			"Dark Slate Blue?",
+			"Hm. A bit severe for some, perhaps. But it's exquisitely brooding, no?"
+		],
+		[
+			"Amethyst?",
+			"Charming. Not for amateurs, certainly. But it sings under proper lighting."
+		],
+		[
+			"Medium Purple?",
+			"I’ve been told it’s optimistic. Perhaps too optimistic for your eye?"
+		],
+		[
+			"Cornflower Blue?",
+			"A darling shade. Youthful, but not unrefined."
+		],
+		[
+			"Dodger Blue?",
+			"Yes, it's bright. But one must be bold sometimes, don't you think?"
+		],
+		[
+			"Lime Green?",
+			"Oh, how refreshing. It practically hums with irreverence."
+		],
+		[
+			"Olive Green?",
+			"Rooted. Earthy. You need sophistication to appreciate its restraint."
+		],
+		[
+			"Crimson?",
+			"Dramatic, yes. But then again, some of us can pull it off."
+		],
+		[
+			"Firebrick?",
+			"Oh, the depth! It broods, it burns... in a very controlled way, of course."
+		]
+	]
+}
