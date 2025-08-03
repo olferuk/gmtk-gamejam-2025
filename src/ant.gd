@@ -1,24 +1,21 @@
 extends CharacterBody2D
 
-class_name AntBase
+class_name Ant
 
 var is_true: bool = false
 
 @onready var body := $Body
 @onready var head := $Head
+@onready var sunglasses: Sprite2D = $Sunglasses
 @onready var face_features := $FaceFeatures
 @onready var limbs := $Limbs
 @onready var legs := $Legs
-
 @onready var interaction_component: InteractionComponent = $InteractionComponent
-
-@export var head_count: int = 1
-@export var body_count: int = 1
-@export var features_count: int = 3
 
 var head_index: int = 0
 var body_index: int = 0
 var feature_index: int = 0
+var sunglasses_index: int = 0
 
 const TILE_SIZE = 32
 
@@ -32,11 +29,18 @@ func _ready():
 
 # ❗ You must set the textures (like head.texture = ...) 
 #    before calling build().
-func build(is_true_ant: bool, idx_head: int, idx_body: int, idx_feat: int):
-	is_true = is_true_ant
+func build(
+	is_target: bool,
+	idx_head: int,
+	idx_body: int,
+	idx_feat: int = -1,
+	idx_glasses: int = -1
+):
+	is_true = is_target
 	head_index = idx_head
 	body_index = idx_body
 	feature_index = idx_feat
+	sunglasses_index = idx_glasses
 	
 	_apply_parts()
 

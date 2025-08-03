@@ -61,6 +61,8 @@ texture = ExtResource("3_pxrx3")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
+[node name="Sunglasses" type="Sprite2D" parent="."]
+
 [node name="FaceFeatures" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_pxrx3")
@@ -72,7 +74,7 @@ modulate = Color(0.705882, 0.705882, 0.705882, 1)
 sprite_frames = SubResource("SpriteFrames_4is2n")
 animation = &"running"
 autoplay = "running"
-frame_progress = 0.150237
+frame_progress = 0.0957275
 
 [node name="InteractionComponent" type="Node2D" parent="."]
 script = ExtResource("5_lfmnp")
