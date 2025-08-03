@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://g15t2jia54dt"]
+[gd_scene load_steps=16 format=3 uid="uid://g15t2jia54dt"]
 
 [ext_resource type="Script" uid="uid://d0r327jfrvb0" path="res://src/ant.gd" id="1_mawhd"]
 [ext_resource type="Texture2D" uid="uid://t1sg7wsql6os" path="res://vfx/sprite_sheets/body_normal.png" id="2_fof1s"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbsxatg3y3yox" path="res://vfx/sprite_sheets/head_normal.png" id="3_pxrx3"]
 [ext_resource type="Texture2D" uid="uid://d0w2us3gvbra1" path="res://vfx/sprite_sheets/extra_beards.png" id="4_pxrx3"]
 [ext_resource type="Script" uid="uid://byp63y8w4j6p1" path="res://src/interaction_component.gd" id="5_lfmnp"]
+[ext_resource type="Texture2D" uid="uid://blsdusm3xjkrp" path="res://vfx/sprite_sheets/extra_sunglasses.png" id="5_s3vhq"]
 [ext_resource type="Texture2D" uid="uid://cjw056iecycqx" path="res://vfx/comic-bubble.png" id="6_8xb1t"]
 [ext_resource type="Texture2D" uid="uid://d36kmi7fpv3ho" path="res://vfx/sprite_sheets/running/legs_run1.png" id="6_s3vhq"]
 [ext_resource type="Texture2D" uid="uid://crjlebeegoqnk" path="res://vfx/sprite_sheets/running/legs_run2.png" id="7_0dok6"]
@@ -51,6 +52,11 @@ shape = SubResource("CircleShape2D_8xb1t")
 
 [node name="Body" type="Sprite2D" parent="."]
 texture = ExtResource("2_fof1s")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Clothes" type="Sprite2D" parent="Body"]
+region_enabled = true
 
 [node name="Limbs" type="Sprite2D" parent="."]
 modulate = Color(0.705887, 0.705887, 0.705887, 1)
@@ -61,7 +67,13 @@ texture = ExtResource("3_pxrx3")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="FaceFeatures" type="Sprite2D" parent="."]
+[node name="Sunglasses" type="Sprite2D" parent="Head"]
+visible = false
+texture = ExtResource("5_s3vhq")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="FaceFeatures" type="Sprite2D" parent="Head"]
 visible = false
 texture = ExtResource("4_pxrx3")
 region_enabled = true
@@ -72,7 +84,7 @@ modulate = Color(0.705882, 0.705882, 0.705882, 1)
 sprite_frames = SubResource("SpriteFrames_4is2n")
 animation = &"running"
 autoplay = "running"
-frame_progress = 0.150237
+frame_progress = 0.0957275
 
 [node name="InteractionComponent" type="Node2D" parent="."]
 script = ExtResource("5_lfmnp")
