@@ -4,7 +4,9 @@ extends Node
 	"res://scenes/ui/comic_bubble.tscn"
 )
 
-var dialogue_lines: Array[String] = []
+signal finished_dialogue
+
+var dialogue_lines: Array = []
 var current_line_index = 0
 
 var text_box
@@ -13,7 +15,7 @@ var text_box_pos2d: Vector2
 var is_dialogue_active: bool = false
 var can_advance_line: bool = false
 
-func start_dialogue(pos: Vector2, lines: Array[String]):
+func start_dialogue(pos: Vector2, lines: Array):
 	if is_dialogue_active:
 		return
 	
@@ -46,6 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if current_line_index >= dialogue_lines.size():
 			is_dialogue_active = false
 			current_line_index = 0
+			finished_dialogue.emit()
 			return
 		
 		_show_text_box()

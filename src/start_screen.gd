@@ -16,6 +16,8 @@ func _ready():
 func load_level():
 	level_title.text = LevelManager.level_title
 	intro_text.text = LevelManager.level_intro
+	if LevelManager.current_level == 1:
+		Music.start_level_music()
 
 func _process(delta: float) -> void:
 	_update_blink_animation(delta)
@@ -30,4 +32,4 @@ func _update_blink_animation(delta: float) -> void:
 	continue_label.modulate = Color(1, 1, 1, alpha)
 
 func _start_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/level-1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/test-level.tscn")

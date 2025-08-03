@@ -1,12 +1,16 @@
 extends Node2D
+
 class_name AntSpawner
 
 @export var max_ants: int = 15
 @export var spawn_delay: float = 0.5
-@export var min_ant_speed: float = 50.0
-@export var max_ant_speed: float = 90.0
+@export var spawn_until_true_delay: float = randf_range(1, 3)
+@export var min_ant_speed: float = 40.0
+@export var max_ant_speed: float = 70.0
 
 var spawn_timer: float = 0.0
+var spawn_timer_target: float = 0.0
+var spawned_target: bool = false
 var ant_data: Array[Dictionary] = []
 
 func process_spawning(
@@ -18,18 +22,21 @@ func process_spawning(
 	if is_game_over:
 		return
 
-	var current_ant_count = ants_container.get_child_count()
-
-	if current_ant_count < max_ants:
+	if ants_container.get_child_count() < max_ants:
 		spawn_timer += delta
 		if spawn_timer >= spawn_delay:
 			spawn_timer = 0.0
-			spawn_ant(camera, ants_container)
+			spawn_ant(camera, ants_container, false)
+	
+	spawn_timer_target += delta
+	if spawn_timer_target >= spawn_until_true_delay and not spawned_target:
+		spawned_target = true
+		spawn_ant(camera, ants_container, true)
 
 	teleport_distant_ants(camera)
 	update_ant_z_index(ants_container)
 
-func spawn_ant(camera: Camera2D, ants_container: Node2D) -> void:
+func spawn_ant(camera: Camera2D, ants_container: Node2D, target_ant: bool) -> void:
 	var camera_bounds = _calculate_camera_bounds(camera)
 
 	var spawn_on_left = randf() < 0.5
@@ -42,12 +49,20 @@ func spawn_ant(camera: Camera2D, ants_container: Node2D) -> void:
 	else:
 		spawn_x = camera_bounds.position.x + camera_bounds.size.x + 50
 		direction_x = -1.0
-
+	
 	var bottom_area_start = camera_bounds.position.y + camera_bounds.size.y * 0.4
 	var bottom_area_height = camera_bounds.size.y * 0.6
 	var spawn_y = bottom_area_start + randf() * bottom_area_height
-
-	AntBuilder.add_monet_ant(false, ants_container)
+	
+	if LevelManager.current_level == 1:
+		AntBuilder.add_worker_ant(target_ant, ants_container)
+	elif LevelManager.current_level == 2:
+		AntBuilder.add_student_ant(target_ant, ants_container)
+	elif LevelManager.current_level == 3:
+		AntBuilder.add_gentleman(target_ant, ants_container)
+	elif LevelManager.current_level == 4:
+		AntBuilder.add_monet_ant(target_ant, ants_container)
+	
 	var ant = ants_container.get_child(-1) as Ant
 	ant.global_position = Vector2(spawn_x, spawn_y)
 
@@ -84,7 +99,13 @@ func teleport_distant_ants(camera: Camera2D) -> void:
 		var new_x: float
 
 		if data.spawn_on_left:
-			if ant.global_position.x > camera_bounds.position.x + camera_bounds.size.x + teleport_distance:
+			if (
+				ant.global_position.x
+				>
+				camera_bounds.position.x
+				+ camera_bounds.size.x
+				+ teleport_distance
+			):
 				should_teleport = true
 				new_x = data.original_spawn_x
 		else:
@@ -99,9 +120,9 @@ func teleport_distant_ants(camera: Camera2D) -> void:
 
 			ant.global_position = Vector2(new_x, new_y)
 
-			var target_y = bottom_area_start + randf() * bottom_area_height
-			var direction_x = 1.0 if data.spawn_on_left else -1.0
-			var direction = Vector2(direction_x, (target_y - new_y) / camera_bounds.size.x * 2)
+			var ty = bottom_area_start + randf() * bottom_area_height
+			var dx = 1.0 if data.spawn_on_left else -1.0
+			var direction = Vector2(dx, (ty - new_y) / camera_bounds.size.x * 2)
 			direction = direction.normalized()
 
 			ant.set_movement(direction * data.speed)

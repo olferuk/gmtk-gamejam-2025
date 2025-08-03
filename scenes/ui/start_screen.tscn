@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfs11ud4l4ocv"]
+[gd_scene load_steps=7 format=3 uid="uid://cfs11ud4l4ocv"]
 
 [ext_resource type="Script" uid="uid://667i5x5w23xn" path="res://src/start_screen.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="2_font"]
+[ext_resource type="AudioStream" uid="uid://b8mmp8gf0yvvp" path="res://sfx/abs-confirm-2.mp3" id="3_ihgl4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_njl8u"]
 font = ExtResource("2_font")
@@ -83,4 +84,7 @@ label_settings = SubResource("LabelSettings_continue")
 horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ihgl4")
+autoplay = true

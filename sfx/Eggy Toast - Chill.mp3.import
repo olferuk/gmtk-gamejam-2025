@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8ksqwk7bf3i7"
+path="res://.godot/imported/Eggy Toast - Chill.mp3-117841e50476b562a4f8d8d2a8e70973.mp3str"
+
+[deps]
+
+source_file="res://sfx/Eggy Toast - Chill.mp3"
+dest_files=["res://.godot/imported/Eggy Toast - Chill.mp3-117841e50476b562a4f8d8d2a8e70973.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl5xh8w2qam4n"]
+[gd_scene load_steps=6 format=3 uid="uid://cl5xh8w2qam4n"]
 
 [ext_resource type="Script" uid="uid://cqllgkje78jae" path="res://src/game_over.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="2_font"]
+[ext_resource type="AudioStream" uid="uid://c8gmvc3av2y4p" path="res://sfx/abs-cancel-2.mp3" id="3_x6o8e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font = ExtResource("2_font")
@@ -55,3 +56,7 @@ layout_mode = 2
 text = "(PRESS SPACE TO TRY AGAIN)"
 label_settings = SubResource("LabelSettings_continue")
 horizontal_alignment = 1
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x6o8e")
+autoplay = true

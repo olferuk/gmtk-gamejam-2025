@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AntMill"
-run/main_scene="uid://cnwh2kq1086sx"
+run/main_scene="uid://ee7wei17yxjm"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 DialogueManager="*res://src/singletons/dialogue_manager.gd"
 AntBuilder="*res://src/singletons/ant_builder.gd"
 LevelManager="*res://src/singletons/level_manager.gd"
+Music="*res://scenes/music.tscn"
 
 [display]
 

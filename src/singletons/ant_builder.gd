@@ -5,6 +5,7 @@ const ANT = preload("res://scenes/game_objects/ant.tscn")
 const NONE = -1
 const ANY = 100
 
+
 func add_monet_ant(is_target: bool, parent_node: Node):
 	var ant = _create_and_add(parent_node)
 	
@@ -15,6 +16,7 @@ func add_monet_ant(is_target: bool, parent_node: Node):
 	var body_index = randi() % 2 if randf() < 0.8 else NONE
 	var beard_idx = randi() % 3 if randf() < 0.25 else NONE
 	ant.build(is_target, head_index, body_index, beard_idx)
+
 
 func add_worker_ant(is_target: bool, parent_node: Node):
 	var ant = _create_and_add(parent_node)
@@ -27,6 +29,7 @@ func add_worker_ant(is_target: bool, parent_node: Node):
 	var beard_idx = 0 if randf() < 0.7 else NONE
 	ant.build(is_target, head_index, body_index, beard_idx)
 
+
 func add_gentleman(is_target: bool, parent_node: Node):
 	var ant = _create_and_add(parent_node)
 	
@@ -36,6 +39,18 @@ func add_gentleman(is_target: bool, parent_node: Node):
 	var head_index = 1 if is_target else 0
 	var body_index = 0
 	var beard_idx = randi() % 2 + 1 if randf() < 0.7 else NONE
+	ant.build(is_target, head_index, body_index, beard_idx)
+
+
+func add_student_ant(is_target: bool, parent_node: Node):
+	var ant = _create_and_add(parent_node)
+	
+	ant.head.texture = preload("res://vfx/sprite_sheets/heads_nerds.png")
+	ant.clothes.texture = preload("res://vfx/sprite_sheets/body_backpack.png")
+	
+	var head_index = 1 if is_target else [0, 2, 3, 4, 5][randi() % 5]
+	var body_index = randi() % 6
+	var beard_idx = NONE
 	ant.build(is_target, head_index, body_index, beard_idx)
 
 
