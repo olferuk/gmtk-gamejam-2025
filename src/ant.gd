@@ -4,6 +4,9 @@ class_name Ant
 
 var is_true: bool = false
 
+var movement_direction: Vector2 = Vector2.RIGHT
+var movement_speed: float = 100.0
+
 @onready var body := $Body
 @onready var clothes := $Body/Clothes
 @onready var head := $Head
@@ -12,9 +15,6 @@ var is_true: bool = false
 @onready var limbs := $Limbs
 @onready var legs := $Legs
 @onready var interaction_component := $InteractionComponent
-
-var movement_direction: Vector2 = Vector2.RIGHT
-var movement_speed: float = 0.0
 
 var head_index: int = 0
 var feature_index: int = 0
@@ -27,7 +27,7 @@ func _ready():
 	if interaction_component:
 		interaction_component.interaction_started.connect(_on_interaction_started)
 
-# ❗ You must set the textures (like head.texture = ...) 
+# ❗ You must set the textures (like head.texture = ...)
 #    before calling build().
 func build(
 	is_target: bool,
@@ -37,13 +37,13 @@ func build(
 	idx_glasses: int = -1
 ):
 	is_true = is_target
-	
+
 	head_index = idx_head
 	feature_index = idx_feat
 	sunglasses_index = idx_glasses
-	
+
 	clothes_index = idx_body
-	
+
 	_apply_parts()
 
 func _apply_parts():
@@ -56,7 +56,7 @@ func _apply_parts():
 		clothes.region_rect = _calc_region(clothes_index, clothes.texture)
 
 	limbs.region_rect = _calc_region(0, limbs.texture)
-	
+
 	if feature_index >= 0:
 		face_features.visible = true
 		face_features.region_rect = _calc_region(feature_index, face_features.texture)
@@ -78,4 +78,4 @@ func set_movement(direction_and_speed: Vector2) -> void:
 # interaction
 
 func _on_interaction_started() -> void:
-	print('hi')
+	print('beeba')
