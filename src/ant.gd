@@ -13,6 +13,9 @@ var is_true: bool = false
 @onready var legs := $Legs
 @onready var interaction_component := $InteractionComponent
 
+var movement_direction: Vector2 = Vector2.RIGHT
+var movement_speed: float = 0.0
+
 var head_index: int = 0
 var feature_index: int = 0
 var sunglasses_index: int = 0
@@ -60,6 +63,19 @@ func _apply_parts():
 
 func _calc_region(index: int, tex: Texture2D) -> Rect2i:
 	return Rect2i(index * TILE_SIZE, 0, TILE_SIZE, int(tex.get_size().y))
+
+# movement
+
+func _physics_process(_delta: float) -> void:
+	if movement_speed > 0:
+		velocity = movement_direction * movement_speed
+		move_and_slide()
+
+func set_movement(direction_and_speed: Vector2) -> void:
+	movement_direction = direction_and_speed.normalized()
+	movement_speed = direction_and_speed.length()
+
+# interaction
 
 func _on_interaction_started() -> void:
 	print('hi')
