@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="AntMill"
-run/main_scene="uid://bjeohg7yiliol"
+run/main_scene="res://scenes/levels/test-level.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogueManager="*res://src/singletons/dialogue_manager.gd"
+AntBuilder="*res://src/singletons/ant_builder.gd"
 
 [display]
 

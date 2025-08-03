@@ -10,7 +10,12 @@ const ANT_SCENE = preload("res://scenes/game_objects/ant.tscn")
 
 var spawn_timer: float = 0.0
 
-func process_spawning(delta: float, camera: Camera2D, ants_container: Node2D, is_game_over: bool) -> void:
+func process_spawning(
+	delta: float,
+	camera: Camera2D,
+	ants_container: Node2D,
+	is_game_over: bool
+) -> void:
 	if is_game_over:
 		return
 
@@ -31,7 +36,7 @@ func spawn_wave(camera: Camera2D, ants_container: Node2D) -> void:
 		var y_pos = start_y + row * row_spacing
 		var x_spawn = camera_bounds.position.x - 50
 
-		var ant = ANT_SCENE.instantiate() as AntBase
+		var ant = ANT_SCENE.instantiate() as Ant
 		ants_container.add_child(ant)
 
 		var spacing = 40.0
@@ -50,7 +55,10 @@ func cleanup_distant_ants(camera: Camera2D, ants_container: Node2D) -> void:
 	var cleanup_distance = camera_bounds.size.x * 0.6
 
 	for ant in ants_container.get_children():
-		if ant.global_position.x > camera_bounds.position.x + camera_bounds.size.x + cleanup_distance:
+		if (
+			ant.global_position.x >
+			camera_bounds.position.x + camera_bounds.size.x + cleanup_distance
+		):
 			ant.queue_free()
 
 func _calculate_camera_bounds(camera: Camera2D) -> Rect2:
