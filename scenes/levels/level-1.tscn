@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8vsvmnktp0x8" path="res://src/levels/level_1.gd" id="1_ktyk1"]
 [ext_resource type="PackedScene" uid="uid://choluaobbfxji" path="res://scenes/game_objects/player.tscn" id="2_eeqru"]
-[ext_resource type="PackedScene" path="res://scenes/game_objects/ant_spawner.tscn" id="3_urp3g"]
+[ext_resource type="PackedScene" uid="uid://f5tgp3js8eg3" path="res://scenes/game_objects/ant_spawner.tscn" id="3_urp3g"]
 [ext_resource type="PackedScene" uid="uid://no7g5fbjmhf6" path="res://scenes/game_objects/game_timer.tscn" id="4_gl321"]
 
 [node name="Level-1" type="Node2D"]

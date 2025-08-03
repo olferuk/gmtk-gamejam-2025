@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 200.0
 
-@onready var animated_sprite: Sprite2D = $Sprite2D
+@onready var animated_sprite := $Legs
 @onready var interaction_raycast: RayCast2D = $InteractionRayCast
 
 var camera_bounds: Rect2
@@ -34,13 +34,12 @@ func _handle_movement(_delta: float) -> void:
 	move_and_slide()
 
 func _update_animation() -> void:
-	pass
-	#if velocity != Vector2.ZERO:
-		#if animated_sprite.animation != "walk":
-			#animated_sprite.play("walk")
-	#else:
-		#if animated_sprite.animation != "idle":
-			#animated_sprite.play("idle")
+	if velocity != Vector2.ZERO:
+		if animated_sprite.animation != "walk":
+			animated_sprite.play("walk")
+	else:
+		if animated_sprite.animation != "idle":
+			animated_sprite.play("idle")
 
 func _update_camera_bounds() -> void:
 	var camera = get_viewport().get_camera_2d()
