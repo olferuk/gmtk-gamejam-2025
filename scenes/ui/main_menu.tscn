@@ -11,6 +11,11 @@ offset_right = 63.0
 offset_bottom = 302.0
 script = ExtResource("1_lj8tq")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 185.0
