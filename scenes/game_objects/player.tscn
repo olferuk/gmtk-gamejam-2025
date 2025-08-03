@@ -1,20 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://choluaobbfxji"]
+[gd_scene load_steps=11 format=3 uid="uid://choluaobbfxji"]
 
 [ext_resource type="Script" uid="uid://dhypx2u2wrt7o" path="res://src/player.gd" id="1_ne3qo"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2uek2"]
+[ext_resource type="Texture2D" uid="uid://t1sg7wsql6os" path="res://vfx/sprite_sheets/body_normal.png" id="2_6qfcv"]
+[ext_resource type="Texture2D" uid="uid://dbsxatg3y3yox" path="res://vfx/sprite_sheets/head_normal.png" id="3_jlhh2"]
+[ext_resource type="Texture2D" uid="uid://d36kmi7fpv3ho" path="res://vfx/sprite_sheets/running/legs_run1.png" id="4_pnyev"]
+[ext_resource type="Texture2D" uid="uid://crjlebeegoqnk" path="res://vfx/sprite_sheets/running/legs_run2.png" id="5_h21u6"]
+[ext_resource type="Texture2D" uid="uid://gb0gk8gorxst" path="res://vfx/sprite_sheets/running/legs_run3.png" id="6_3hgox"]
+[ext_resource type="Texture2D" uid="uid://bu6um6bogggpu" path="res://vfx/sprite_sheets/running/legs_run4.png" id="7_4emce"]
+[ext_resource type="Texture2D" uid="uid://bq3kyahu5d1uf" path="res://vfx/sprite_sheets/running/legs_run5.png" id="8_jqvdm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2uek2"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3gjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pnyev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h21u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3hgox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4emce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jqvdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3hgox")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ne3qo")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(17, 34)
-texture = SubResource("PlaceholderTexture2D_2uek2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2uek2")
 
 [node name="InteractionRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(59, 0)
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_6qfcv")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("3_jlhh2")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Legs" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.705882, 0.705882, 0.705882, 1)
+sprite_frames = SubResource("SpriteFrames_h3gjd")
+animation = &"running"
+autoplay = "running"

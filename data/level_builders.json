@@ -1,0 +1,56 @@
+{
+	"intro_title": "Construction Mayhem",
+	"intro": "There’s a whole lotta hammerin’ and hollerin’ goin’ on at the site today. 
+	Everyone's stickin' to the plan, wearin’ their helmets, and mindin’ their business — well, almost everyone. 
+	
+	One fella’s gone completely off the rails. He’s makin’ a mess, doin’ who-knows-what, and causin’ trouble like it's his job. 
+	Your task: find the one guy who's clearly not doin’ what he’s supposed to.
+
+	Just try not to get hit by a flying wrench while you're at it.",
+	
+	"success_msgs": [
+		"Well, you got me!",
+		"I just love how wet paint feels on my hair!",
+		"Figured if I painted my head yellow...",
+		"...they’d think I’m wearin’ a helmet!"
+	],
+	
+	"wrong_msgs": [
+		[
+			"Whoa there!",
+			"I’m just stackin’ bricks like I was told."
+		],
+		[
+			"Not me, pal.",
+			"I got three supervisors watchin’ me already!"
+		],
+		[
+			"Keep lookin’, buddy.",
+			"I ain’t the loose screw you’re after."
+		],
+		[
+			"I may be slow, but I ain’t crazy.",
+			"Check the guy with the jackhammer on the roof!"
+		],
+		[
+			"All ten fingers accounted for!",
+			"Can’t say the same for everyone here..."
+		],
+		[
+			"Nah, I read the manual — mostly.",
+			"Try that fella who brought a ladder to pour concrete."
+		],
+		[
+			"I got my vest, I got my boots...",
+			"Don’t know what else you want from me!"
+		],
+		[
+			"If somethin’s broken, I didn’t touch it!",
+			"And I got three witnesses, too."
+		],
+		[
+			"You think I’m the problem?",
+			"Talk to the guy arguing with the crane."
+		]
+	]
+}

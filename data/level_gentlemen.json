@@ -1,0 +1,56 @@
+{
+	"intro_title": "Gentlemen’s Club",
+	"intro": "There's a party happening at a gentlemen’s club.
+	Everyone is dressed according to the dress code - except for one man.
+	He’s decided the rules don’t apply to him and is wearing something completely different.
+	
+	Your job is to spot this bold rule-breaker!
+	
+	But be warned: the rest of the guests might bore you out of your mind with their small talk.",
+	
+	"success_msgs": [
+		"Ah! So you have unearthed my whereabouts!",
+		"I was under the most delightful delusion ..",
+		"..that I might abscond unnoticed, ..",
+		"clad in the full regalia of my impudent finery!"
+	],
+	
+	"wrong_msgs": [
+		[
+			"Mistaken, sir!",
+			"I am but a bystander in this operetta of confusion"
+		],
+		[
+			"Wrong rogue, I’m afraid.",
+			"Mine is a face of innocence!"
+		],
+		[
+			"Alas, not I!",
+			"The true scamp has better taste in scandal"
+		],
+		[
+			"You wound me, sir!",
+			"I’m guilty only of good posture",
+		],
+		[
+			"A flattering error -",
+			"but no, the mischief’s not mine."
+		],
+		[
+			"Dash it all, I’ve done nothing!",
+			"Blame the fellow with the crooked hat!"
+		],
+		[
+			"Surely you jest!",
+			"My sins are far more refined than this."
+		],
+		[
+			"Look again, dear sleuth -",
+			"- this visage is innocence incarnate."
+		],
+		[
+			"Egad! You accuse me?",
+			"I haven’t the energy for such antics!"
+		]
+	]
+}
