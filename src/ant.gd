@@ -75,6 +75,14 @@ func set_movement(direction_and_speed: Vector2) -> void:
 	movement_direction = direction_and_speed.normalized()
 	movement_speed = direction_and_speed.length()
 
+func set_sprite_direction(direction: Vector2) -> void:
+	var direction_scale = 1.0 if direction.x >= 0 else -1.0
+
+	body.scale.x = direction_scale
+	head.scale.x = direction_scale
+	limbs.scale.x = direction_scale
+	legs.scale.x = direction_scale
+
 # interaction
 
 func _on_interaction_started() -> void:
