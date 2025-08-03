@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://ee7wei17yxjm"]
+[gd_scene load_steps=7 format=3 uid="uid://ee7wei17yxjm"]
 
 [ext_resource type="Script" uid="uid://qax2uqslwmvm" path="res://src/main_menu.gd" id="1_lj8tq"]
+[ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="2_fe2o3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe2o3"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1g8jr"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1g8jr"]
+font = ExtResource("2_fe2o3")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_m1kxf"]
+font = ExtResource("2_fe2o3")
+font_size = 42
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,19 +39,60 @@ offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 185.0
-offset_bottom = 186.0
+offset_left = 551.0
+offset_top = 211.0
+offset_right = 807.0
+offset_bottom = 365.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
 [node name="NewGameButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe2o3")
 text = "New Game"
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
 
 [node name="ExitButton" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1g8jr")
 text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = -25.0
+offset_right = 930.0
+offset_bottom = 7.0
+text = "A GAME ABOUT ANTS"
+label_settings = SubResource("LabelSettings_1g8jr")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 481.0
+offset_top = -149.0
+offset_right = 817.0
+offset_bottom = -106.0
+text = "ANT MILL"
+label_settings = SubResource("LabelSettings_m1kxf")
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.333333)
+offset_left = 147.0
+offset_top = 392.0
+offset_right = 1047.0
+offset_bottom = 424.0
+text = "There should be art, but we are no artists :("
+label_settings = SubResource("LabelSettings_1g8jr")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
