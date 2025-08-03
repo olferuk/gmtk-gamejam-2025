@@ -1,8 +1,8 @@
 {
-	"intro_title": "Gentlemen’s Club",
-	"intro": "There's a party happening at a gentlemen’s club.
+	"intro_title": "Gentlemen's Club",
+	"intro": "There's a party happening at a gentlemen's club.
 	Everyone is dressed according to the dress code - except for one man.
-	He’s decided the rules don’t apply to him and is wearing something completely different.
+	He's decided the rules don't apply to him and is wearing something completely different.
 	
 	Your job is to spot this bold rule-breaker!
 	
@@ -21,7 +21,7 @@
 			"I am but a bystander in this operetta of confusion"
 		],
 		[
-			"Wrong rogue, I’m afraid.",
+			"Wrong rogue, I'm afraid.",
 			"Mine is a face of innocence!"
 		],
 		[
@@ -30,14 +30,14 @@
 		],
 		[
 			"You wound me, sir!",
-			"I’m guilty only of good posture",
+			"I'm guilty only of good posture",
 		],
 		[
 			"A flattering error -",
-			"but no, the mischief’s not mine."
+			"but no, the mischief's not mine."
 		],
 		[
-			"Dash it all, I’ve done nothing!",
+			"Dash it all, I've done nothing!",
 			"Blame the fellow with the crooked hat!"
 		],
 		[
@@ -50,7 +50,7 @@
 		],
 		[
 			"Egad! You accuse me?",
-			"I haven’t the energy for such antics!"
+			"I haven't the energy for such antics!"
 		]
 	]
 }
