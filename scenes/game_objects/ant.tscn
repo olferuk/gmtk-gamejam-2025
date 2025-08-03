@@ -90,7 +90,7 @@ modulate = Color(0.705882, 0.705882, 0.705882, 1)
 sprite_frames = SubResource("SpriteFrames_4is2n")
 animation = &"running"
 autoplay = "running"
-frame_progress = 0.410527
+frame_progress = 0.314882
 
 [node name="InteractionComponent" type="Node2D" parent="."]
 script = ExtResource("5_lfmnp")
