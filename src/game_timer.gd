@@ -3,7 +3,7 @@ class_name GameTimer
 
 signal game_over_triggered
 
-@export var initial_time: float = 10.0
+@export var initial_time: float = 60.0
 
 var current_time: float
 var is_finished: bool = false

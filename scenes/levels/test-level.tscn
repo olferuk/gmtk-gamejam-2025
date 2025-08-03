@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnwh2kq1086sx"]
+
+[ext_resource type="Script" uid="uid://d4iyqcj1ni2bh" path="res://src/levels/test_level.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://choluaobbfxji" path="res://scenes/game_objects/player.tscn" id="2_eeqru"]
+[ext_resource type="PackedScene" uid="uid://f5tgp3js8eg3" path="res://scenes/game_objects/ant_spawner.tscn" id="3_gl321"]
+[ext_resource type="PackedScene" uid="uid://no7g5fbjmhf6" path="res://scenes/game_objects/game_timer.tscn" id="4_ieimj"]
+[ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="5_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_timer"]
+font = ExtResource("5_font")
+font_size = 32
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(550, 350)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 2
+color = Color(0.941176, 0.823529, 0.647059, 1)
+
+[node name="Ants" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Player" parent="." instance=ExtResource("2_eeqru")]
+position = Vector2(2, 155)
+
+[node name="AntSpawner" parent="." instance=ExtResource("3_gl321")]
+
+[node name="GameTimer" parent="." instance=ExtResource("4_ieimj")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "00:10"
+label_settings = SubResource("LabelSettings_timer")
+horizontal_alignment = 1

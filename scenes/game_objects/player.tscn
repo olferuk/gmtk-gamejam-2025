@@ -52,6 +52,8 @@ animations = [{
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4emce"]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 100
+collision_mask = 2
 script = ExtResource("1_ne3qo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,6 +63,7 @@ shape = SubResource("CircleShape2D_2uek2")
 [node name="InteractionRayCast" type="RayCast2D" parent="."]
 position = Vector2(0, 5)
 target_position = Vector2(18, 0)
+collision_mask = 2
 
 [node name="Body" type="Sprite2D" parent="."]
 texture = ExtResource("2_6qfcv")
