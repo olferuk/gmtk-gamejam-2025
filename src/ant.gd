@@ -6,6 +6,7 @@ var is_true: bool = false
 
 var movement_direction: Vector2 = Vector2.RIGHT
 @export var movement_speed: float = 0.0
+var should_be_moving: float = 1.0
 
 @onready var body := $Body
 @onready var clothes := $Body/Clothes
@@ -68,7 +69,7 @@ func _calc_region(index: int, tex: Texture2D) -> Rect2i:
 
 func _physics_process(_delta: float) -> void:
 	if movement_speed > 0:
-		velocity = movement_direction * movement_speed
+		velocity = movement_direction * movement_speed * should_be_moving
 		move_and_slide()
 
 func set_movement(direction_and_speed: Vector2) -> void:
@@ -78,4 +79,22 @@ func set_movement(direction_and_speed: Vector2) -> void:
 # interaction
 
 func _on_interaction_started() -> void:
-	print('beeba')
+	should_be_moving = 0.0
+	var text = []
+	if is_true:
+		text = LevelManager.success_msgs
+	else:
+		text = LevelManager.wrong_msgs[randi() % LevelManager.wrong_msgs.size()]
+	
+	DialogueManager.start_dialogue(position, text)
+	DialogueManager.finished_dialogue.connect(
+		_on_interaction_ended,
+		ConnectFlags.CONNECT_ONE_SHOT
+	)
+
+func _on_interaction_ended() -> void:
+	should_be_moving = 1.0
+	if is_true:
+		await get_tree().create_timer(0.4).timeout
+		LevelManager.load_next_level()
+		get_tree().change_scene_to_file("res://scenes/ui/start_screen.tscn")

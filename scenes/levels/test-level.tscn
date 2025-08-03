@@ -28,7 +28,7 @@ color = Color(0.941176, 0.823529, 0.647059, 1)
 [node name="Ants" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(6, 6)
 
 [node name="Player" parent="." instance=ExtResource("2_eeqru")]
 position = Vector2(2, 155)
@@ -43,9 +43,10 @@ position = Vector2(2, 155)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -50.0
-offset_right = 50.0
-offset_bottom = 40.0
+offset_left = -79.0
+offset_top = 40.0
+offset_right = 81.0
+offset_bottom = 80.0
 grow_horizontal = 2
 text = "00:10"
 label_settings = SubResource("LabelSettings_timer")

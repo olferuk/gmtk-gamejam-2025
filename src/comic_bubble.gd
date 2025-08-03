@@ -1,5 +1,7 @@
 extends MarginContainer
 
+class_name ComicBubble
+
 signal finish_displaying()
 
 @onready var label: Label = $MarginContainer/Label

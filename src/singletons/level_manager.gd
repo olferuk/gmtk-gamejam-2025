@@ -7,6 +7,17 @@ var success_msgs: Array = []
 var wrong_msgs: Array = []
 
 
+func load_next_level():
+	current_level += 1
+	if current_level == 2:
+		load_level_2()
+	elif current_level == 3:
+		load_level_3()
+	elif current_level == 4:
+		load_level_4()
+	else:
+		print("ULTIMATE WINNER")
+
 func load_level_1():
 	current_level = 1
 	populate(read_json_file("res://data/level_builders.json"))

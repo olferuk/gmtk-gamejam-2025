@@ -30,4 +30,4 @@ func _update_blink_animation(delta: float) -> void:
 	continue_label.modulate = Color(1, 1, 1, alpha)
 
 func _start_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/levels/level-1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/test-level.tscn")
