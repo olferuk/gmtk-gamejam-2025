@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfs11ud4l4ocv"]
+[gd_scene load_steps=6 format=3 uid="uid://cfs11ud4l4ocv"]
 
 [ext_resource type="Script" uid="uid://667i5x5w23xn" path="res://src/start_screen.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="2_font"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_njl8u"]
 font = ExtResource("2_font")
-font_size = 24
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_m7t1o"]
+font = ExtResource("2_font")
+font_size = 14
 
 [sub_resource type="LabelSettings" id="LabelSettings_continue"]
 font = ExtResource("2_font")
@@ -25,6 +29,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -906.0
+offset_top = -612.0
+offset_right = -491.0
+offset_bottom = -304.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1, 0.1, 0.1, 1)
@@ -36,11 +44,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+use_top_left = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="LevelTitle" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "FIND BEEBA. press e to interact."
 label_settings = SubResource("LabelSettings_njl8u")
@@ -50,9 +59,18 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Intro" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Some add info"
+text = "There’s a whole lotta hammerin’ and hollerin’ goin’ on at the site today. 
+	Everyone's stickin' to the plan, wearin’ their helmets, and mindin’ their business — well, almost everyone. 
+	
+	One fella’s gone completely off the rails. He’s makin’ a mess, doin’ who-knows-what, and causin’ trouble like it's his job. 
+	Your task: find the one guy who's clearly not doin’ what he’s supposed to.
+
+	Just try not to get hit by a flying wrench while you're at it."
+label_settings = SubResource("LabelSettings_m7t1o")
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Spacer" type="Control" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -63,3 +81,6 @@ layout_mode = 2
 text = "(PRESS SPACE TO CONTINUE)"
 label_settings = SubResource("LabelSettings_continue")
 horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false

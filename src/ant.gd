@@ -5,7 +5,7 @@ class_name Ant
 var is_true: bool = false
 
 var movement_direction: Vector2 = Vector2.RIGHT
-var movement_speed: float = 100.0
+@export var movement_speed: float = 0.0
 
 @onready var body := $Body
 @onready var clothes := $Body/Clothes
