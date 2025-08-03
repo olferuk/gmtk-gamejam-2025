@@ -3,14 +3,20 @@ extends CharacterBody2D
 @export var speed: float = 100.0
 
 @onready var legs := $Legs
+@onready var body := $Body
+@onready var head := $Head
+@onready var arms := $Arms
+@onready var shadow := $Shadow
 @onready var interaction_raycast: RayCast2D = $InteractionRayCast
 
 var camera_bounds: Rect2
 var current_interactable: CharacterBody2D = null
 var last_movement_direction: Vector2 = Vector2.RIGHT
+var last_horizontal_direction: int = 1
 
 func _ready() -> void:
 	_update_camera_bounds()
+	_update_sprite_direction()
 
 func _physics_process(delta: float) -> void:
 	_update_camera_bounds()
@@ -38,9 +44,28 @@ func _update_animation() -> void:
 	if velocity != Vector2.ZERO:
 		if legs.animation != "walk":
 			legs.play("walk")
+
+		var new_direction = last_horizontal_direction
+		if velocity.x > 0:
+			new_direction = 1
+		elif velocity.x < 0:
+			new_direction = -1
+
+		if new_direction != last_horizontal_direction:
+			last_horizontal_direction = new_direction
+			_update_sprite_direction()
 	else:
 		if legs.animation != "idle":
 			legs.play("idle")
+
+func _update_sprite_direction() -> void:
+	var direction_scale = 1.0 if last_horizontal_direction > 0 else -1.0
+
+	body.scale.x = direction_scale
+	head.scale.x = direction_scale
+	arms.scale.x = direction_scale
+	legs.scale.x = direction_scale
+	shadow.scale.x = direction_scale
 
 func _update_camera_bounds() -> void:
 	var camera = get_viewport().get_camera_2d()

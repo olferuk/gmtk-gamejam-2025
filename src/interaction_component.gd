@@ -21,6 +21,7 @@ func set_player_in_range(player_in_range: bool) -> void:
 	is_player_in_range = player_in_range
 	if interaction_indicator:
 		interaction_indicator.visible = is_player_in_range and interaction_enabled
+		interaction_indicator.play("default")
 
 func interact() -> void:
 	if not interaction_enabled or not is_player_in_range:
