@@ -7,7 +7,7 @@ signal interaction_started
 @export var interaction_enabled: bool = true
 @export var interaction_offset: Vector2 = Vector2(0, -48)
 
-@onready var interaction_indicator: Sprite2D = $InteractionIndicator
+@onready var interaction_indicator: AnimatedSprite2D = $InteractionIndicator
 
 var is_player_in_range: bool = false
 

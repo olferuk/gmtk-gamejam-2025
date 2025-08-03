@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://d0w2us3gvbra1" path="res://vfx/sprite_sheets/extra_beards.png" id="4_pxrx3"]
 [ext_resource type="Script" uid="uid://byp63y8w4j6p1" path="res://src/interaction_component.gd" id="5_lfmnp"]
 [ext_resource type="Texture2D" uid="uid://blsdusm3xjkrp" path="res://vfx/sprite_sheets/extra_sunglasses.png" id="5_s3vhq"]
-[ext_resource type="Texture2D" uid="uid://cjw056iecycqx" path="res://vfx/comic-bubble.png" id="6_8xb1t"]
 [ext_resource type="Texture2D" uid="uid://d36kmi7fpv3ho" path="res://vfx/sprite_sheets/running/legs_run1.png" id="6_s3vhq"]
 [ext_resource type="Texture2D" uid="uid://crjlebeegoqnk" path="res://vfx/sprite_sheets/running/legs_run2.png" id="7_0dok6"]
 [ext_resource type="Texture2D" uid="uid://d2sn43qw4g2qi" path="res://vfx/sprite_sheets/shadow.png" id="7_qsbi0"]
 [ext_resource type="Texture2D" uid="uid://gb0gk8gorxst" path="res://vfx/sprite_sheets/running/legs_run3.png" id="8_qsbi0"]
 [ext_resource type="Texture2D" uid="uid://bu6um6bogggpu" path="res://vfx/sprite_sheets/running/legs_run4.png" id="9_nldh7"]
 [ext_resource type="Texture2D" uid="uid://bq3kyahu5d1uf" path="res://vfx/sprite_sheets/running/legs_run5.png" id="10_kxfxx"]
+[ext_resource type="Texture2D" uid="uid://ccxsaoiqmvny6" path="res://vfx/sprite_sheets/selection_animation.png" id="12_f3j8m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8xb1t"]
 radius = 5.09902
@@ -42,6 +42,35 @@ animations = [{
 "loop": true,
 "name": &"running",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3vhq"]
+atlas = ExtResource("12_f3j8m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dok6"]
+atlas = ExtResource("12_f3j8m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsbi0"]
+atlas = ExtResource("12_f3j8m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nldh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3vhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dok6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsbi0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
 }]
 
 [node name="Ant" type="CharacterBody2D"]
@@ -95,6 +124,9 @@ frame_progress = 0.314882
 [node name="InteractionComponent" type="Node2D" parent="."]
 script = ExtResource("5_lfmnp")
 
-[node name="InteractionIndicator" type="Sprite2D" parent="InteractionComponent"]
+[node name="InteractionIndicator" type="AnimatedSprite2D" parent="InteractionComponent"]
 visible = false
-texture = ExtResource("6_8xb1t")
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(1.28125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_nldh7")
+frame_progress = 0.0881077

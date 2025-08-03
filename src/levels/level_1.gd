@@ -1,6 +1,10 @@
 extends Node2D
 
 @onready var ants: Node2D = $Ants
+@onready var camera: Camera2D = $Camera2D
+@onready var timer_label: Label = $UI/TimerLabel
+@onready var ant_spawner: AntSpawner = $AntSpawner
+@onready var game_timer: GameTimer = $GameTimer
 
 const EXAMPLE_DIALOGUE: Array[String] = [
 	"Hey there!",
@@ -9,6 +13,7 @@ const EXAMPLE_DIALOGUE: Array[String] = [
 ]
 
 func _ready() -> void:
+
 	for i in range(18):
 		var x = int(float(i) / 3)
 		var y = i % 3

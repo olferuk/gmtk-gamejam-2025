@@ -12,6 +12,9 @@ func _ready() -> void:
 	if interaction_component:
 		interaction_component.interaction_started.connect(_on_interaction_started)
 
+	if interaction_component:
+		interaction_component.interaction_started.connect(_on_interaction_started)
+
 func _physics_process(_delta: float) -> void:
 	velocity = movement_direction * movement_speed
 	move_and_slide()
