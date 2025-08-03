@@ -2,12 +2,12 @@ extends Node2D
 class_name InteractionComponent
 
 signal interaction_started
-signal interaction_ended
+#signal interaction_ended
 
 @export var interaction_enabled: bool = true
 @export var interaction_offset: Vector2 = Vector2(0, -48)
 
-@onready var interaction_indicator: Sprite2D = $InteractionIndicator
+@onready var interaction_indicator: AnimatedSprite2D = $InteractionIndicator
 
 var is_player_in_range: bool = false
 
@@ -18,16 +18,13 @@ func _ready() -> void:
 func set_player_in_range(player_in_range: bool) -> void:
 	if is_player_in_range == player_in_range:
 		return
-
 	is_player_in_range = player_in_range
-
 	if interaction_indicator:
 		interaction_indicator.visible = is_player_in_range and interaction_enabled
 
 func interact() -> void:
 	if not interaction_enabled or not is_player_in_range:
 		return
-
 	interaction_started.emit()
 	print("Interaction with ", get_parent().name)
 

@@ -5,18 +5,18 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2uek2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h21u6"]
-radius = 14.0
-height = 56.0
+radius = 9.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ne3qo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.49012e-07, 0)
-scale = Vector2(28, 56)
+position = Vector2(5, 12)
+scale = Vector2(18, 30)
 texture = SubResource("PlaceholderTexture2D_2uek2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 12)
 shape = SubResource("CapsuleShape2D_h21u6")
 
 [node name="InteractionRayCast" type="RayCast2D" parent="."]

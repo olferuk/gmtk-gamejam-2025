@@ -9,6 +9,8 @@ var movement_speed: float = 100.0
 func _ready() -> void:
 	if animated_sprite:
 		animated_sprite.play("walk")
+	if interaction_component:
+		interaction_component.interaction_started.connect(_on_interaction_started)
 
 	if interaction_component:
 		interaction_component.interaction_started.connect(_on_interaction_started)

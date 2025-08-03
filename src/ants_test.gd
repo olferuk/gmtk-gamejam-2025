@@ -1,92 +1,26 @@
 extends Node2D
 
-@export var wave_rows: int = 3
-@export var wave_direction: Vector2 = Vector2.RIGHT
-@export var spawn_delay: float = 2.0
-@export var ant_speed: float = 70.0
-#@export var ants_per_row: int = 1
-
 @onready var ants: Node2D = $Ants
 @onready var camera: Camera2D = $Camera2D
-@onready var player: CharacterBody2D = $Player
 @onready var timer_label: Label = $UI/TimerLabel
+@onready var ant_spawner: AntSpawner = $AntSpawner
+@onready var game_timer: GameTimer = $GameTimer
 
-const ENEMY_SCENE = preload("res://scenes/game_objects/enemy.tscn")
-
-var camera_bounds: Rect2
-var spawn_timer: float = 0.0
-var game_timer: float = 10.0
-var is_game_over: bool = false
+var player := 1.
 
 func _ready() -> void:
-	_calculate_camera_bounds()
-	_spawn_wave()
+	ant_spawner.wave_rows = 3
+	ant_spawner.wave_direction = Vector2.RIGHT
+	ant_spawner.spawn_delay = 2.0
+	ant_spawner.ant_speed = 70.0
+
+	game_timer.initial_time = 10.0
+	game_timer.game_over_triggered.connect(_game_over)
 
 func _process(delta: float) -> void:
-	if is_game_over:
-		return
+	var is_game_over = game_timer.process_timer(delta, timer_label)
+	ant_spawner.process_spawning(delta, camera, ants, is_game_over)
 
-	_update_game_timer(delta)
-
-	spawn_timer += delta
-	if spawn_timer >= spawn_delay:
-		spawn_timer = 0.0
-		_spawn_wave()
-
-	_cleanup_distant_ants()
-
-func _calculate_camera_bounds() -> void:
-	var viewport_size = get_viewport().get_visible_rect().size / camera.zoom
-	var camera_pos = camera.global_position
-
-	camera_bounds = Rect2(
-		camera_pos - viewport_size / 2,
-		viewport_size
-	)
-
-func _spawn_wave() -> void:
-	var start_y = camera_bounds.position.y + camera_bounds.size.y * 0.4
-	var spawn_height = camera_bounds.size.y * 0.5
-	var row_spacing = spawn_height / max(1, wave_rows - 1) if wave_rows > 1 else 0
-
-	for row in range(wave_rows):
-		var y_pos = start_y + row * row_spacing
-		var x_spawn = camera_bounds.position.x - 50
-
-		#for ant_idx in range(ants_per_row):
-		var ant = ENEMY_SCENE.instantiate()
-		ants.add_child(ant)
-
-		var spacing = 40.0
-		ant.global_position = Vector2(
-			x_spawn - spacing,
-			y_pos + randf_range(-10, 10)
-		)
-
-		if ant.has_method("set_movement"):
-			ant.set_movement(wave_direction * ant_speed)
-
-func _cleanup_distant_ants() -> void:
-	var cleanup_distance = camera_bounds.size.x * 0.6
-
-	for ant in ants.get_children():
-		if ant.global_position.x > camera_bounds.position.x + camera_bounds.size.x + cleanup_distance:
-			ant.queue_free()
-
-func _update_game_timer(delta: float) -> void:
-	game_timer -= delta
-
-	if game_timer <= 0:
-		game_timer = 0
-		_game_over()
-
-	_update_timer_display()
-
-func _update_timer_display() -> void:
-	var minutes = int(game_timer / 60)
-	var seconds = int(game_timer) % 60
-	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func _game_over() -> void:
-	is_game_over = true
 	get_tree().change_scene_to_file("res://scenes/menus/game_over.tscn")

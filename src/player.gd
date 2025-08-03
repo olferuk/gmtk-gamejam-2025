@@ -27,12 +27,10 @@ func _handle_movement(_delta: float) -> void:
 	var input_vector = Input.get_vector(
 		"ui_left", "ui_right", "ui_up", "ui_down"
 	)
-
 	if input_vector != Vector2.ZERO:
 		velocity = input_vector * speed
 	else:
 		velocity = Vector2.ZERO
-
 	move_and_slide()
 
 func _update_animation() -> void:
@@ -91,7 +89,6 @@ func _handle_interaction_detection() -> void:
 func _update_raycast_direction() -> void:
 	if velocity.length() > 0:
 		last_movement_direction = velocity.normalized()
-
 	interaction_raycast.target_position = last_movement_direction * 59.0
 
 func _set_current_interactable(interactable: CharacterBody2D) -> void:
