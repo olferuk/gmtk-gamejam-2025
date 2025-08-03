@@ -16,6 +16,8 @@ func _ready():
 func load_level():
 	level_title.text = LevelManager.level_title
 	intro_text.text = LevelManager.level_intro
+	if LevelManager.current_level == 1:
+		Music.start_level_music()
 
 func _process(delta: float) -> void:
 	_update_blink_animation(delta)

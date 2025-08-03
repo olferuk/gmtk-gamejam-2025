@@ -6,6 +6,7 @@ signal finish_displaying()
 
 @onready var label: Label = $MarginContainer/Label
 @onready var timer: Timer = $Timer
+@onready var keyboard_sound: AudioStreamPlayer2D = $KeyboardSound
 
 const MAX_WIDTH = 160
 var text = ""
@@ -35,6 +36,7 @@ func display_text(text_to_display: String):
 	_display_letter()
 
 func _display_letter():
+	keyboard_sound.play()
 	label.text += text[letter_index]
 	letter_index += 1
 	

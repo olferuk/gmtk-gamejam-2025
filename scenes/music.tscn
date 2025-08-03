@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq6phhrslfjsh"]
+
+[ext_resource type="AudioStream" uid="uid://bntnifsfsc0ha" path="res://sfx/Eggy Toast - Pirates Breakfast.mp3" id="1_ibx2e"]
+[ext_resource type="Script" uid="uid://qk1nnh5wimu" path="res://scenes/music.gd" id="2_ejojg"]
+[ext_resource type="AudioStream" uid="uid://c8ksqwk7bf3i7" path="res://sfx/Eggy Toast - Chill.mp3" id="2_qnihg"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ibx2e")
+autoplay = true
+script = ExtResource("2_ejojg")
+
+[node name="LevelSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qnihg")

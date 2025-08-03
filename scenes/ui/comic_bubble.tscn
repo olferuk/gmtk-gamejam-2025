@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciel6t5i8sopy"]
+[gd_scene load_steps=5 format=3 uid="uid://ciel6t5i8sopy"]
 
 [ext_resource type="FontFile" uid="uid://bfoead15dvol3" path="res://vfx/fonts/shovel-knight-extended.ttf" id="1_0wcgq"]
 [ext_resource type="Script" uid="uid://bop5i3ei84a7v" path="res://src/comic_bubble.gd" id="1_1wm6u"]
 [ext_resource type="Texture2D" uid="uid://cjw056iecycqx" path="res://vfx/comic-bubble.png" id="1_i7lqb"]
+[ext_resource type="AudioStream" uid="uid://bxfu3qn2k7slc" path="res://sfx/UIClick_BLEEOOP_Keyboard_Snap.wav" id="4_dqv7i"]
 
 [node name="ComicBubble" type="MarginContainer"]
 script = ExtResource("1_1wm6u")
@@ -32,5 +33,8 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="KeyboardSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqv7i")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
